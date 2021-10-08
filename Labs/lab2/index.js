@@ -11,6 +11,12 @@ app.set('port', 1337)
 app.set('views', __dirname + "/views")
 app.set('view engine', 'ejs');
 
+/*{
+ "scripts": {
+    "start": "node ./lib/index.js"
+ },
+}*/
+
 app.get(
     '/hello/:name',
     (req, res) => res.send("Hello " + req.params.name)

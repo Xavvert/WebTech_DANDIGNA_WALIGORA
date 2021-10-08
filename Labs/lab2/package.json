@@ -16,3 +16,10 @@
         "nodemon": "^2.0.12"
     }
 }
+
+/*{
+  "name": "webtech-back-end",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "license": "MIT"
+}*/

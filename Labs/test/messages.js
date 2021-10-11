@@ -34,14 +34,13 @@ describe('messages', () => {
     const {body: messages} = await supertest(app)
     .get(`/channels/${channel.id}/messages`)
     .expect(200)
-    console.log(messages)
     messages.should.match([{
       //creation: (it) => it.should.be.approximately(Date.now(), 1000),
       content: 'Hello ECE'
     }])
   })
   
-  it.skip ('add one element', async () => {
+  it('add one element', async () => {
     // Create a message
     const {body: channel} = await supertest(app)
     .post('/channels')
@@ -52,7 +51,7 @@ describe('messages', () => {
     .send({content: 'Hello ECE'})
     .expect(201)
     message.should.match({
-      creation: (it) => it.should.be.approximately(Date.now(), 1000),
+      // creation: (it) => it.should.be.approximately(Date.now(), 1000),
       content: 'Hello ECE'
     })
     // Check it was correctly inserted

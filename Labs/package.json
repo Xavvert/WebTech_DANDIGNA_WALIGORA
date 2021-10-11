@@ -8,6 +8,7 @@
     "express": "^4.17.1",
     "level": "^6.0.1",
     "mixme": "^0.3.5",
+    "nodemon": "^2.0.13",
     "should": "^13.2.3",
     "supertest": "^4.0.2",
     "uuid": "^8.3.0"

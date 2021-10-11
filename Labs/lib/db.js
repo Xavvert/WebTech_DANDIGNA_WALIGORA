@@ -95,9 +95,9 @@ module.exports = {
       if (!message.content) throw Error('Invalid message')
       id = uuid()
       
-      store.channels[channelId].messages.push(message)
+      store.channels[channelId].messages.push(merge({creation: Date.now()},message))
       content = message.content
-      return merge(message, {id: id})
+      return merge({creation: Date.now()}, message)
     }
   }
 }

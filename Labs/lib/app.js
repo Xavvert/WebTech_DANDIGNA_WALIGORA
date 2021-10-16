@@ -42,6 +42,7 @@ app.post('/users', async(req, res) => {
 
 app.get('/users', async(req, res) => {
   const user = await db.users.list()
+  console.log(user)
   res.json(user)
 })
 

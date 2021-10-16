@@ -9,8 +9,6 @@ const store =  {
   users: {
   },
 
-  messages: {
-  }
 }
 
 

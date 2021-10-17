@@ -9,7 +9,7 @@ export default function MessageForm(addMessage, styles) {
         const data = new FormData(e.target)
         addMessage({
           content: data.get('content'),
-          author: 'david',
+          author: 'Paul',
           creation: Date.now(),
         })
         e.target.elements.content.value = ''

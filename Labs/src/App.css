@@ -7,7 +7,17 @@
   height: 100%;
   width: 100%;
 }
+.App-header {
+  text-align:center;
+  padding: 20px;
+}
 
+.App-footer{
+  text-align:center;
+  position: flex;
+  justify-content: center;
+  align-items: center;
+}
 .channelList {
   cursor: pointer;
   padding: 10px;

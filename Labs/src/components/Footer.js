@@ -7,7 +7,7 @@ export default function Footer({styles}) {
     
     return (
         <footer className="App-footer" style={styles.footer}>
-        footer
+        Application made by Xavvert and ArteSmes
       </footer>
     )
 }

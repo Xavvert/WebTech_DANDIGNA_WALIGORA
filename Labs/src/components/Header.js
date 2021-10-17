@@ -7,7 +7,7 @@ export default function Header({styles}) {
     console.log(styles.header)
     return (
         <header className="App-header" >
-        <h1 >header</h1>
+        <h1 >Chat application</h1>
         </header>
     )
 }

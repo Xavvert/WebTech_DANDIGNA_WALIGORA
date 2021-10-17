@@ -42,7 +42,6 @@ app.post('/users', async(req, res) => {
 
 app.get('/users', async(req, res) => {
   const user = await db.users.list()
-  console.log(user)
   res.json(user)
 })
 
@@ -50,6 +49,7 @@ app.get('/users', async(req, res) => {
 
 app.get('/channels/:channelId/messages', async (req, res) => {
   const message = await db.messages.list(req.params.channelId)
+  console.log(message)
   res.json(message)
 })
 

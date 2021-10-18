@@ -36,7 +36,7 @@ export default function Channel({styles, addMessage, messages, channelSelected})
               ))}
             </ul>
           </div>
-          <MessageForm addMessage={addMessage} styles = {styles} /> 
+          <MessageForm addMessage={addMessage} styles = {styles} channelSelected = {channelSelected} /> 
         </div>
     )
 }

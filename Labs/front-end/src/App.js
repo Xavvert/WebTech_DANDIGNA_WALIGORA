@@ -8,12 +8,14 @@ import Header from './Header'
 import Main from './Main'
 import Login from './Login'
 
+import { StyledEngineProvider } from '@mui/material/styles';
+
 const styles = {
   root: {
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#565E71',
+    //backgroundColor: '#565E71',
     padding: '50px',
   },
 }
@@ -22,11 +24,13 @@ export default function App() {
   const [user, setUser] = useState(null)
   return (
     <div className="App" css={styles.root}>
-      <Header />
+      {/* <Header /> */}
+      <StyledEngineProvider>
       {
         user ? <Main /> : <Login onUser={setUser} />
       }
-      <Footer />
+      </StyledEngineProvider>
+      {/* <Footer /> */}
     </div>
   );
 }

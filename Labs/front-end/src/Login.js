@@ -5,6 +5,9 @@ import { useTheme } from '@mui/styles';
 
 // Button
 import FormControl from '@mui/material/FormControl';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const useStyles = (theme) => ({
   root: {
@@ -13,19 +16,28 @@ const useStyles = (theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    '& > div': {
+    '& > form': {
       margin: `${theme.spacing(1)}`,
       marginLeft: 'auto',
       marginRight: 'auto',
-    },
-    '& fieldset': {
-      border: 'none',
-      '& label': {
-        marginBottom: theme.spacing(.5),
-        display: 'block',
-      },
-    },
+      flexDirection: 'column',
+      justifyContent: 'center',
+      flex: '1 1 auto',
+      display: 'flex',
+      '& > Button': {
+        color: "blue"
+      }
+    }
   },
+  form: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    flex: '1 1 auto',
+    display: 'flex',
+    '& > Button': {
+        margin: "20px"
+    }
+  }
 })
 
 export default function Login({
@@ -34,22 +46,15 @@ export default function Login({
   const styles = useStyles(useTheme())
   return (
     <div css={styles.root}>
-      <div>
-        <fieldset>
-          <label htmlFor="username">username: </label>
-          <input id="username" name="username" />
-        </fieldset>
-        <fieldset>
-          <label htmlFor="password">password:</label>
-          <input id="password" name="password" type="password" />
-        </fieldset>
-        <fieldset>
-          <input type="submit" value="login" onClick={ (e) => {
-            e.stopPropagation()
-            onUser({username: 'david'})
-          }} />
-        </fieldset>
+      <form css = {{flexDirection: 'column'}} onSubmit = {() => {onUser({username: 'david'})}}>
+        <div css ={styles.form} >
+      <TextField id="standard-basic" label="Username" variant="standard"  InputProps ={{style: {}}} required = {true} />
+      <TextField id="standard-basic" label="Password" type = "password" variant="standard" InputProps ={{}} required = {true} />
+      
+      <Button variant="contained" color="primary" type="submit" >Submit</Button>
       </div>
+      </form>
+
     </div>
   );
 }

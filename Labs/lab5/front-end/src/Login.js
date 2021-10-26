@@ -1,10 +1,7 @@
-import {} from 'react';
-/** @jsx jsx */
-import { jsx } from '@emotion/core'
-// Layout
-import { useTheme } from '@material-ui/core/styles';
 
-//import button depuis https://mui.com/;
+/** @jsxImportSource @emotion/react */
+// Layout
+import { useTheme } from '@mui/styles';
 
 const useStyles = (theme) => ({
   root: {
@@ -28,9 +25,9 @@ const useStyles = (theme) => ({
   },
 })
 
-export default ({
+export default function Login({
   onUser
-}) => {
+}) {
   const styles = useStyles(useTheme())
   return (
     <div css={styles.root}>

@@ -9,6 +9,7 @@ import {ReactComponent as SettingsIcon} from './icons/settings.svg';
 
 const useStyles = (theme) => ({
   root: {
+    padding: "60px",
     height: '100%',
     flex: '1 1 auto',
     display: 'flex',

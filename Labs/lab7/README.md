@@ -6,7 +6,9 @@ We will store the user information inside a context. Create a Context Provider a
 
 
 
-## How to launch dex with Windows
+## How to use the app and launch dex with Windows
 
-Clone the version 2.28 then follow the instructions here : https://www.adaltas.com/en/2020/11/17/oauth-openid-connect-intro/
+Clone the version 2.28 then follow the instructions here to launch dex : https://www.adaltas.com/en/2020/11/17/oauth-openid-connect-intro/
+
+To start the app : cd to your front-end folder, install dependencies with "npm install", then launch the app with npm start
 

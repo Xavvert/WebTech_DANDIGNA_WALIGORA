@@ -8,6 +8,7 @@ import axios from 'axios'
 // Layout
 import { useTheme } from '@mui/styles';
 import {Link} from '@mui/material';
+import { color } from '@mui/system';
 
 const base64URLEncode = (str) => {
   return str.toString('base64')
@@ -66,7 +67,9 @@ const Redirect = ({
   }
   return (
     <div css={styles.root}>
+      <button>
       <Link onClick={redirect} color="secondary">Login with OpenID Connect and OAuth2</Link>
+      </button>
     </div>
   )
 }

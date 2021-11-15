@@ -16,11 +16,11 @@ grpc:
   addr: 127.0.0.1:5557
 
 staticClients:
-  - id: example-app
+  - id: webtech-frontend
     redirectURIs:
       - 'http://127.0.0.1:5555/callback'
     name: 'Example App'
-    secret: ZXhhbXBsZS1hcHAtc2VjcmV0
+    public: true
 
 connectors:
   - type: mockCallback

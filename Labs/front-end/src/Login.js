@@ -53,6 +53,7 @@ const Redirect = ({
   config,
   codeVerifier,
 }) => {
+  const scope = ["openid", "email", "offline_access"];
   const styles = useStyles(useTheme())
   const redirect = (e) => {
     e.stopPropagation()
@@ -60,7 +61,7 @@ const Redirect = ({
     const url = [
       `${config.authorization_endpoint}?`,
       `client_id=${config.client_id}&`,
-      `scope=${config.scope}&`,
+      `scope=${scope.join("%20")}&`,
       `response_type=code&`,
       `redirect_uri=${config.redirect_uri}&`,
       `code_challenge=${code_challenge}&`,
@@ -85,6 +86,17 @@ const Tokens = ({
   const {id_token} = oauth
   const id_payload = id_token.split('.')[1]
   const {email} = JSON.parse(atob(id_payload))
+  console.log(JSON.parse(atob(id_payload)))
+  console.log("ici")
+  const {login} = useContext(Context)
+  useEffect(() => {
+    console.log(id_payload)
+    login({
+    name: "Paul",
+    email:email
+  })
+  }, [])
+  
   const logout = (e) => {
     e.stopPropagation()
     removeCookie('oauth')
@@ -106,12 +118,8 @@ const LoadToken = function({
 }) {
   onUser("test onUser");
   const styles = useStyles(useTheme())
-  const {login} = useContext(Context)
-  login({
-    name: "Paul",
-    email:"paul.waligora@hotmail.fr"
-  })
-  useEffect( () => {
+  
+    useEffect( () => {
     const fetch = async () => {
       try {
         const {data: oauth} = await axios.post(

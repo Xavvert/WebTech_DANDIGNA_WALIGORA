@@ -33,7 +33,7 @@ export default function Main({
   drawerMobileVisible,
 }) {
   const user=useContext(UserContext);
-  alert(user);
+  //alert(user);
   const [channel, setChannel] = useState(null)
   const fetchChannel = async (channel) => {
     setChannel(channel)

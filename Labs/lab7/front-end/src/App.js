@@ -7,6 +7,7 @@ import Footer from './Footer'
 import Header from './Header'
 import Main from './Main'
 import Login from './Login'
+import {UserContext} from "./AppContext";
 
 const styles = {
   root: {
@@ -25,6 +26,7 @@ export default function App() {
     setDrawerMobileVisible(!drawerMobileVisible)
   }
   return (
+    <UserContext.Provider value={user}>
     <div className="App" css={styles.root}>
       <Header drawerToggleListener={drawerToggleListener}/>
       {
@@ -32,5 +34,6 @@ export default function App() {
       }
       <Footer />
     </div>
+    </UserContext.Provider>
   );
 }

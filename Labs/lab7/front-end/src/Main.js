@@ -1,6 +1,6 @@
 
 /** @jsxImportSource @emotion/react */
-import {useState} from 'react'
+import {useState, useContext} from "react"
 // Layout
 import { useTheme } from '@mui/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -9,6 +9,7 @@ import {Drawer} from '@mui/material';
 import Channels from './Channels'
 import Channel from './Channel'
 import Welcome from './Welcome'
+import {UserContext} from "./AppContext";
 
 const useStyles = (theme) => ({
   main: {
@@ -31,6 +32,8 @@ const useStyles = (theme) => ({
 export default function Main({
   drawerMobileVisible,
 }) {
+  const user=useContext(UserContext);
+  alert(user);
   const [channel, setChannel] = useState(null)
   const fetchChannel = async (channel) => {
     setChannel(channel)

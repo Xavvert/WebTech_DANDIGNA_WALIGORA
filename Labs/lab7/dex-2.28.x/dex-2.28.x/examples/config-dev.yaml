@@ -112,18 +112,21 @@ staticClients:
 #    name: 'Static Client for Device Flow'
 #    public: true
 connectors:
-- type: mockCallback
-  id: mock
-  name: Example
-# - type: google
-#   id: google
-#   name: Google
-#   config:
+  - type: mockCallback
+    id: mock
+    name: Example
+  # - type: google
+  #   id: google
+  #   name: Google
+  - type: github
+    id: github
+    name: "Github"
+    config:
 #     issuer: https://accounts.google.com
 #     # Connector config values starting with a "$" will read from the environment.
-#     clientID: $GOOGLE_CLIENT_ID
-#     clientSecret: $GOOGLE_CLIENT_SECRET
-#     redirectURI: http://127.0.0.1:5556/dex/callback
+     clientID: a220233c825f542712cd
+     clientSecret: e3c30f60f96e55b53f5a3717a43319ae20e23c03
+     redirectURI: http://127.0.0.1:5556/dex/callback
 #     hostedDomains:
 #     - $GOOGLE_HOSTED_DOMAIN
 

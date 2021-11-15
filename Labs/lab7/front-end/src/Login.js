@@ -62,7 +62,7 @@ const Redirect = ({
       `redirect_uri=${config.redirect_uri}&`,
       `code_challenge=${code_challenge}&`,
       `code_challenge_method=S256`,
-    ].join('')
+    ].join("")
     window.location = url
   }
   return (
@@ -85,22 +85,24 @@ const Tokens = ({
   const logout = (e) => {
     e.stopPropagation()
     removeCookie('oauth')
-  }
+  };
   return (
     <div css={styles.root}>
       Welcome {email} <Link onClick={logout} color="secondary">logout</Link>
     </div>
-  )
-}
+  );
+};
 
 const LoadToken = function({
   code,
   codeVerifier,
   config,
   removeCookie,
-  setCookie
+  setCookie,
+  onUser
 }) {
   const styles = useStyles(useTheme())
+  onUser("test onUser");
   useEffect( () => {
     const fetch = async () => {
       try {
@@ -120,7 +122,7 @@ const LoadToken = function({
         console.error(err)
       }
     }
-    fetch()
+    fetch();
   })
   return (
     <div css={styles.root}>Loading tokens</div>
@@ -161,8 +163,9 @@ export default function Login({
         codeVerifier={cookies.code_verifier}
         config={config}
         setCookie={setCookie}
-        removeCookie={removeCookie} />
+        removeCookie={removeCookie}
+        onUser={onUser} 
+        />
     )
   }
-  
 }

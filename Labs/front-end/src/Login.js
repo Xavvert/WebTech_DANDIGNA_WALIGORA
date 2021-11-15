@@ -100,6 +100,7 @@ const Tokens = ({
   const logout = (e) => {
     e.stopPropagation()
     removeCookie('oauth')
+    window.location.reload(false);
   };
   return (
     <div css={styles.root}>

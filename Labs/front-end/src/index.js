@@ -7,9 +7,11 @@ import * as serviceWorker from "./serviceWorker";
 import "typeface-roboto";
 // Layout
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
+import { BrowserRouter, Route, Switch} from "react-router-dom";
 //context
-import { ContextProvider} from "./Context";
+import { ContextProvider } from "./Context";
+//import { Routes, Route, Switch } from "react-router";
+import HelloWorld from './HelloWorld';
 
 const theme = createTheme({
   palette: {
@@ -22,7 +24,9 @@ ReactDOM.render(
     <ContextProvider>
       <CookiesProvider>
         <ThemeProvider theme={theme}>
-          <App />
+          <BrowserRouter>
+            <App/>
+          </BrowserRouter>
         </ThemeProvider>
       </CookiesProvider>
     </ContextProvider>

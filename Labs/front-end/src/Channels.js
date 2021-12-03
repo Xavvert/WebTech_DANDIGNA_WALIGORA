@@ -4,6 +4,8 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 // Layout
 import {Link} from '@mui/material';
+import { useNavigate } from "react-router-dom";
+
 
 const styles = {
   // root: {
@@ -26,6 +28,7 @@ export default function Channels({
     }
     fetch()
   }, [])
+  const navigate = useNavigate();
   return (
     <ul style={styles.root}>
       { channels.map( (channel, i) => (
@@ -34,6 +37,11 @@ export default function Channels({
             href="#"
             onClick={ (e) => {
               e.preventDefault()
+              if (channel.name == "channel 1") {
+                navigate("/channel1");
+              } else {
+                navigate("/channel2");
+              }
               onChannel(channel)
             }}
             >

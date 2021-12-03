@@ -30,7 +30,7 @@ const useStyles = (theme) => ({
 })
 
 export default function Main({
-  drawerMobileVisible,
+  drawerMobileVisible, channelR
 }) {
   const user=useContext(UserContext);
   //alert(user);
@@ -38,6 +38,7 @@ export default function Main({
   const fetchChannel = async (channel) => {
     setChannel(channel)
   }
+  console.log(channel)
   const theme = useTheme()
   const styles = useStyles(theme)
   const alwaysOpen = useMediaQuery(theme.breakpoints.up('sm'))

@@ -1,6 +1,7 @@
-
+import {useEffect, useState} from 'react'
+import './App.css';
 /** @jsxImportSource @emotion/react */
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 // Local
 import Oups from './Oups'
 import Footer from './Footer'
@@ -8,6 +9,7 @@ import Header from './Header'
 import Main from './Main'
 import Login from './Login'
 import Context from './Context'
+import { MyUser } from './MyUtilisation/MyUser';
 // Rooter
 import {
   Route,
@@ -27,12 +29,17 @@ const styles = {
 }
 
 export default function App() {
+  const [username, setNew] = useState("My Account")
+  const [avatar, setNewAvatar] = useState('')
   const location = useLocation()
   const {oauth} = useContext(Context)
   const [drawerMobileVisible, setDrawerMobileVisible] = useState(false)
   const drawerToggleListener = () => {
     setDrawerMobileVisible(!drawerMobileVisible)
   }
+
+
+  
   const gochannels = (<Navigate
     to={{
       pathname: "/channels",
@@ -45,6 +52,14 @@ export default function App() {
       state: { from: location }
     }}
   />)
+
+  const MyUser = {
+    username: username,
+    avatar: avatar,
+    setMyUser: setNew,
+    setMyAvatar: setNewAvatar
+  }
+
   return (
     <div className="App" css={styles.root}>
       <Header drawerToggleListener={drawerToggleListener}/>

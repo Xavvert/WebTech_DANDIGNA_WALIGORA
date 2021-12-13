@@ -11,6 +11,7 @@ import Form from './channel/Form'
 import List from './channel/List'
 import Context from './Context'
 import { useNavigate, useParams } from 'react-router-dom'
+import Gravatar from 'react-gravatar'
 
 const useStyles = (theme) => ({
   root: {
@@ -78,8 +79,15 @@ export default function Channel() {
         messages={messages}
         onScrollDown={onScrollDown}
         ref={listRef}
-      />
+      >
+      </List>
+      <Gravatar email="mathews.kyle@gmail.com" />
+      <Gravatar email="blah@blah.com" />
+      <Gravatar email="blahblah@blah.com" size={150} rating="pg" default="monsterid" className="CustomAvatar-image" />
+
+
       <Form addMessage={addMessage} channel={channel} />
+      
       <Fab
         color="primary"
         aria-label="Latest messages"

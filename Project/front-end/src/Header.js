@@ -4,6 +4,7 @@ import { useContext } from 'react';
 // Layout
 import { useTheme } from '@mui/styles';
 import { IconButton, Link } from '@mui/material';
+import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import Context from './Context';
 
@@ -55,8 +56,10 @@ export default function Header({
       {
         oauth ?
           <span>
-            {oauth.email}
-            <Link onClick={onClickLogout}>logout</Link>
+            <p>{oauth.email}</p>
+    
+            <Button variant="outlined"   color="error" onClick={onClickLogout} 
+            style={{color: "red", padding: "10px", backgroundColor: "black"}}>logout</Button>
           </span>
         :
           <span>new user</span>

@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+
+
+SOURCE
+http://kyleamathews.github.io/react-gravatar/
+https://github.com/KyleAMathews/react-gravatar
+https://en.gravatar.com/site/implement/
+
 ## Available Scripts
 
 In the project directory, you can run:

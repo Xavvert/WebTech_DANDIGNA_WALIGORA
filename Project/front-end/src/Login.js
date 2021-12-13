@@ -10,6 +10,7 @@ import { useTheme } from '@mui/styles';
 import { Link } from '@mui/material';
 // Local
 import Context from './Context'
+import Button from '@mui/material/Button';
 import {
   useNavigate
 } from "react-router-dom";
@@ -71,7 +72,7 @@ const Redirect = ({
   }
   return (
     <div css={styles.root}>
-      <Link onClick={redirect} color="secondary">Login with OpenID Connect and OAuth2</Link>
+      <Button onClick={redirect} color="secondary" style={{color: "green", padding: "10px", backgroundColor: "grey"}}>Login with OpenID Connect and OAuth2</Button>
     </div>
   )
 }

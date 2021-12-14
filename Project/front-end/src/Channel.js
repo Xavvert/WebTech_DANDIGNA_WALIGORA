@@ -2,10 +2,12 @@
 /** @jsxImportSource @emotion/react */
 import {useContext, useRef, useState, useEffect} from 'react';
 import axios from 'axios';
+
 // Layout
 import { useTheme } from '@mui/styles';
 import {Fab} from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import Picker from 'emoji-picker-react';
 // Local
 import Form from './channel/Form'
 import List from './channel/List'
@@ -62,6 +64,18 @@ export default function Channel() {
     }
     fetch()
   }, [id, oauth, navigate])
+
+  const [inputStr, setInputStr] = useState('');
+  const [showPicker, setShowPicker] = useState(false);
+
+
+  const onEmojiClick = (event, emojiObject) => {
+    setInputStr(prevInput => prevInput + emojiObject.emoji);
+    setShowPicker(false);
+  };
+
+
+
   const onScrollDown = (scrollDown) => {
     setScrollDown(scrollDown)
   }
@@ -83,10 +97,9 @@ export default function Channel() {
       </List>
       <Gravatar email="mathews.kyle@gmail.com" />
       <Gravatar email="blah@blah.com" />
-      <Gravatar email="blahblah@blah.com" size={150} rating="pg" default="monsterid" className="CustomAvatar-image" />
+      
 
-
-      <Form addMessage={addMessage} channel={channel} />
+      <Form addMessage={addMessage} channel={channel}> </Form>
       
       <Fab
         color="primary"

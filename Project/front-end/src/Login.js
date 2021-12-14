@@ -8,6 +8,7 @@ import axios from 'axios'
 // Layout
 import { useTheme } from '@mui/styles';
 import { Link } from '@mui/material';
+import Grid from '@mui/material/Grid';
 // Local
 import Context from './Context'
 import Button from '@mui/material/Button';
@@ -32,24 +33,31 @@ const sha256 = (buffer) => {
 const useStyles = (theme) => ({
   root: {
     flex: '1 1 auto',
-    background: theme.palette.background.default,
+    background: theme.palette.background,
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
     '& > div': {
-      margin: `${theme.spacing(1)}`,
       marginLeft: 'auto',
       marginRight: 'auto',
-    },
-    '& fieldset': {
-      border: 'none',
-      '& label': {
-        marginBottom: theme.spacing(.5),
-        display: 'block',
-      },
+      marginTop: '5%',
+      marginBottom: '5%',
+      width: '30%',
     },
   },
-})
+  password:{
+    width:'100%'
+  },
+  center:{
+    width: 'auto',
+  },
+
+  register:{
+    marginTop: '10px',
+    textAlign: 'center',
+    marginBottom: '-15px',
+  }
+});
 
 const Redirect = ({
   config,
@@ -72,7 +80,16 @@ const Redirect = ({
   }
   return (
     <div css={styles.root}>
-      <Button onClick={redirect} color="secondary" style={{color: "green", padding: "10px", backgroundColor: "grey"}}>Login with OpenID Connect and OAuth2</Button>
+
+      <Grid style={styles.center}>
+      <p style={{ fontSize: "50px" }}>Welcome to SpaceChat'</p>
+      <img src={require("./icons/Space.png")} alt='Space Image'></img>
+      <p style={{ marginBottom: 'auto'}}>A better way to communicate</p>
+      <Button onClick={redirect} variant="contained"  style={{color: "white", padding: "10px", backgroundColor: "#4C4452",  marginTop: '20px'}}>
+        Login with OpenID Connect and OAuth2</Button>
+      </Grid>
+      
+      
     </div>
   )
 }

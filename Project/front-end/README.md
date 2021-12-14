@@ -8,6 +8,10 @@ http://kyleamathews.github.io/react-gravatar/
 https://github.com/KyleAMathews/react-gravatar
 https://en.gravatar.com/site/implement/
 
+pour les emoticones
+https://www.youtube.com/watch?v=vsIDc9FTxzM
+https://cesarwbr.github.io/react-input-emoji/
+https://www.cluemediator.com/how-to-add-emoji-picker-in-the-react
 ## Available Scripts
 
 In the project directory, you can run:

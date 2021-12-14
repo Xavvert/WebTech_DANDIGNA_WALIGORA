@@ -7,6 +7,7 @@ import { IconButton, Link } from '@mui/material';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import Context from './Context';
+import { Chip } from '@mui/material';
 
 const useStyles = (theme) => ({
   header: {
@@ -52,12 +53,13 @@ export default function Header({
       >
         <MenuIcon />
       </IconButton>
-      Header
+      
       {
         oauth ?
           <span>
-            <p>{oauth.email}</p>
-    
+            <div>
+            <Chip label={oauth.email} style={{color: "white", backgroundColor: "darkgreen"}} ></Chip>
+            </div>
             <Button variant="outlined"   color="error" onClick={onClickLogout} 
             style={{color: "red", padding: "10px", backgroundColor: "black"}}>logout</Button>
           </span>

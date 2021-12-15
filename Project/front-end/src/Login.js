@@ -33,30 +33,23 @@ const sha256 = (buffer) => {
 const useStyles = (theme) => ({
   root: {
     flex: '1 1 auto',
-    background: theme.palette.background,
+    background: "linear-gradient(-45deg, #1d1135 70%, #0000a0 120%)",
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     '& > div': {
       marginLeft: 'auto',
       marginRight: 'auto',
-      marginTop: '5%',
-      marginBottom: '5%',
+      marginTop: '1%',
+      marginBottom: '1%',
       width: '30%',
     },
   },
-  password:{
-    width:'100%'
-  },
+
   center:{
     width: 'auto',
   },
 
-  register:{
-    marginTop: '10px',
-    textAlign: 'center',
-    marginBottom: '-15px',
-  }
 });
 
 const Redirect = ({
@@ -82,7 +75,7 @@ const Redirect = ({
     <div css={styles.root}>
 
       <Grid style={styles.center}>
-      <p style={{ fontSize: "50px" }}>Welcome to SpaceChat'</p>
+      <p style={{ fontSize: "50px"}}>Welcome to SpaceChat'</p>
       <img src={require("./icons/Space.png")} alt='Space Image'></img>
       <p style={{ marginBottom: 'auto'}}>A better way to communicate</p>
       <Button onClick={redirect} variant="contained"  style={{color: "white", padding: "10px", backgroundColor: "#4C4452",  marginTop: '20px'}}>

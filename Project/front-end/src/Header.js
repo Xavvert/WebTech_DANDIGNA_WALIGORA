@@ -11,21 +11,30 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@mui/styles';
 import { Chip } from '@mui/material';
 
-const useStylesHeader = makeStyles({
+const useStylesHeader1 = makeStyles({
   root: {
     background: 'linear-gradient(45deg, #3a243b 30%, #191970 90%)',
     border: 0,
     textAlign: 'center',
     borderRadius: 3,
     color: 'white',
-    fontSize: 34,
+    fontSize: 30,
+  },
+});
+
+const useStylesHeader2 = makeStyles({
+  root: {
+    background: 'linear-gradient(45deg, #3a243b 30%, #191970 90%)',
+    border: 0,
+    borderRadius: 3,
+    height: 33,
   },
 });
 
 const useStyles = (theme) => ({
   header: {
     padding: theme.spacing(1),
-    backgroundColor: 'rgba(255,255,255,.3)',
+    backgroundColor: '#a7a6ba',
     flexShrink: 0,
   },
   headerLogIn: {
@@ -56,7 +65,10 @@ export default function Header({
     e.stopPropagation()
     setOauth(null)
   }
-  const classes = useStylesHeader();
+
+  const classes1 = useStylesHeader1();
+  const classes2 = useStylesHeader2();
+
   return (
     <header css={styles.header}>
       <IconButton
@@ -69,16 +81,15 @@ export default function Header({
       </IconButton>
       {
         oauth ?
-          <span>
-            <div>
-            <Chip label={oauth.email} style={{color: "white", backgroundColor: "darkgreen"}} ></Chip>
-            </div>
-            <Button variant="outlined"   color="error" onClick={onClickLogout} 
-            style={{color: "red", padding: "10px", backgroundColor: "black"}}>logout</Button>
-          </span>
+          <div className={classes2.root} >
+            <Chip label={oauth.email} style={{color: "white", backgroundColor: "darkgreen", float: 'left'}} ></Chip>
+            <Typography  style={{color: "white",textAlign: 'center'}}> My Centered Header</Typography>
+            <Button onClick={onClickLogout} style={{color: "white", padding: "4px", backgroundColor: "red", float: 'right'}}>
+            Logout</Button>
+          </div>
         :
         <header>
-        <Typography className={classes.root}>🚀 We're, we're landing on SpaceChat' Sir... 👨‍🚀 Roger that!</Typography>
+        <Typography className={classes1.root}>🚀 We're, we're landing on SpaceChat' Sir... 👨‍🚀 Roger that!</Typography>
         </header>
       }
       

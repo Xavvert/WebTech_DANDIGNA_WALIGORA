@@ -12,7 +12,7 @@ import {useNavigate} from 'react-router-dom'
 const styles = {
   root: {
     '& a': {
-      padding: '.2rem .5rem',
+      padding: '.2rem .5rem', 
       whiteSpace: 'nowrap', 
     }
   },

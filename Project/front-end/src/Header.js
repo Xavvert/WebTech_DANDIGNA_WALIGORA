@@ -7,7 +7,20 @@ import { IconButton, Link } from '@mui/material';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import Context from './Context';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@mui/styles';
 import { Chip } from '@mui/material';
+
+const useStylesHeader = makeStyles({
+  root: {
+    background: 'linear-gradient(45deg, #3a243b 30%, #191970 90%)',
+    border: 0,
+    textAlign: 'center',
+    borderRadius: 3,
+    color: 'white',
+    fontSize: 34,
+  },
+});
 
 const useStyles = (theme) => ({
   header: {
@@ -43,6 +56,7 @@ export default function Header({
     e.stopPropagation()
     setOauth(null)
   }
+  const classes = useStylesHeader();
   return (
     <header css={styles.header}>
       <IconButton
@@ -53,7 +67,6 @@ export default function Header({
       >
         <MenuIcon />
       </IconButton>
-      
       {
         oauth ?
           <span>
@@ -64,7 +77,9 @@ export default function Header({
             style={{color: "red", padding: "10px", backgroundColor: "black"}}>logout</Button>
           </span>
         :
-          <span>new user</span>
+        <header>
+        <Typography className={classes.root}>🚀 We're, we're landing on SpaceChat' Sir... 👨‍🚀 Roger that!</Typography>
+        </header>
       }
       
     </header>

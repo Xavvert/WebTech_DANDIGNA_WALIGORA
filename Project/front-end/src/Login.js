@@ -9,12 +9,19 @@ import axios from 'axios'
 import { useTheme } from '@mui/styles';
 import { Link } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import ThemeContextProvider from './ThemeContext';
+
+import Contenu from './Contenu';
+import './Contenu.css';
+import BtnToggle from './BtnToggle';
+
 // Local
 import Context from './Context'
 import Button from '@mui/material/Button';
 import {
   useNavigate
 } from "react-router-dom";
+import { ThemeContext } from '@emotion/react';
 
 const base64URLEncode = (str) => {
   return str.toString('base64')
@@ -80,6 +87,11 @@ const Redirect = ({
       <p style={{ marginBottom: 'auto'}}>A better way to communicate</p>
       <Button onClick={redirect} variant="contained"  style={{color: "white", padding: "10px", backgroundColor: "#4C4452",  marginTop: '20px'}}>
         Login with OpenID Connect and OAuth2</Button>
+        <ThemeContextProvider>
+          <BtnToggle />
+        <Contenu/>
+        </ThemeContextProvider>
+       
       </Grid>
       
       

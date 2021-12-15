@@ -10,6 +10,10 @@ import Main from './Main'
 import Login from './Login'
 import Context from './Context'
 import { MyUser } from './MyUser';
+
+import Contenu from './Contenu';
+import './Contenu.css';
+import BtnToggle from './BtnToggle';
 // Rooter
 import {
   Route,
@@ -61,8 +65,9 @@ export default function App() {
   }
 
   return (
+    
     <div className="App" css={styles.root}>
-      <Header drawerToggleListener={drawerToggleListener}/>
+      <Header drawerToggleListener={drawerToggleListener}></Header>
       <Routes>
         <Route exact path="/" element={oauth ? (gochannels) : (<Login />)}/>
         <Route path="/channels/*" element={oauth ? (<Main />) : (gohome)}/>

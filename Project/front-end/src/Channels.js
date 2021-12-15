@@ -5,6 +5,7 @@ import axios from 'axios';
 // Layout
 import {Link} from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import Button from '@mui/material/Button';
 // Local
 import Context from './Context'
 import {useNavigate} from 'react-router-dom'
@@ -42,19 +43,19 @@ export default function Channels() {
   return (
     <ul css={styles.root}>
       <li css={styles.channel}>
-        <Link to="/channels" component={RouterLink}>Welcome</Link>
+        <Button to="/channels" component={RouterLink} style={{color: "white", textAlign: 'center', background:'	#132c6f', marginTop: '15px', marginLeft: '12%'}}>SpaceChat' Lobby</Button>
       </li>
       { channels.map( (channel, i) => (
         <li key={i} css={styles.channel}>
-          <Link
+          <Button 
             href={`/channels/${channel.id}`}
             onClick={ (e) => {
               e.preventDefault()
               naviate(`/channels/${channel.id}`)
             }}
-          >
+            style={{color: "white", textAlign: 'center', background:'#301934', marginTop: '8px', marginLeft: '25%'}}>
             {channel.name}
-          </Link>
+          </Button>
         </li>
       ))}
     </ul>

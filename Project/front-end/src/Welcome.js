@@ -7,6 +7,8 @@ import { ReactComponent as ChannelIcon } from './icons/channel.svg';
 import { ReactComponent as FriendsIcon } from './icons/friends.svg';
 import { ReactComponent as SettingsIcon } from './icons/settings.svg';
 import '././style/BGradient.css';
+import "./style/Header.css"
+import "./style/index.css"
 
 // Navigation
 import {useNavigate} from 'react-router-dom'
@@ -52,7 +54,7 @@ export default function Welcome() {
               e.preventDefault()
               navigate(`/channels/createChannel`)
             }}  />
-            <Typography color="textPrimary">
+            <Typography color="textPrimary" style={{fontFamily: "Andromeda",}}>
               Create channels
             </Typography>
           </div>
@@ -60,7 +62,7 @@ export default function Welcome() {
         <Grid item xs>
           <div css={styles.card}>
             <FriendsIcon css={styles.icon} />
-            <Typography color="textPrimary">
+            <Typography color="textPrimary" style={{fontFamily: "Andromeda",}}>
               Invite friends
             </Typography>
           </div>
@@ -71,7 +73,7 @@ export default function Welcome() {
               e.preventDefault()
               navigate(`/channels/settings`)
             }}  />
-            <Typography color="textPrimary">
+            <Typography style={{fontFamily: "Andromeda",}} color="textPrimary">
               Settings
             </Typography>
           </div>

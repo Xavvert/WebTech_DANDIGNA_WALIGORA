@@ -87,7 +87,7 @@ const Redirect = ({
       <Grid style={styles.center}>
       <p style={{ fontSize: "40px", fontFamily: "Andromeda"}}>Welcome to SpaceChat'</p>
       <img src={require("./icons/Space.png")} alt='Space Image'></img>
-      <p style={{ marginBottom: 'auto', fontFamily: "Andromeda"}}>A better way to communicate</p>
+      <p style={{ marginBottom: 'auto', fontFamily: "Andromeda"}}># A better way to communicate #</p>
       <Button onClick={redirect} variant="contained"  style={{color: "white", padding: "10px",  fontFamily: "Andromeda", backgroundColor: "#4C4452",  marginTop: '20px'}}>
         Login with OpenID Connect and OAuth2</Button>
         <ThemeContextProvider>

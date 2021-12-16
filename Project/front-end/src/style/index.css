@@ -39,8 +39,13 @@ ul {
   src: local('Wilma'), url(../fonts/wilma-mankiller-modern-font/WilmaMankillerModern-J4Ej.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'Simvoni';
+  src: local('Simvoni'), url(../fonts/simvoni-font/Simvoni-gxm5Y.ttf) format('truetype');
+}
 
 @font-face {
   font-family: 'Andromeda';
   src: local('Andromeda'), url(../fonts/andromeda-font/Andromeda-eR2n.ttf) format('truetype');
 }
+

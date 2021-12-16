@@ -17,6 +17,9 @@ import Gravatar from 'react-gravatar'
 
 import React from 'react'
 import InputEmoji from 'react-input-emoji'
+import "./style/Header.css"
+import "./style/index.css"
+
 
 
 const useStyles = (theme) => ({
@@ -96,8 +99,8 @@ export default function Channel() {
     return (<div>loading</div>)
   }
   return (
-    <div css={styles.root}>
-      <List
+    <div css={styles.root} style={{ fontFamily: "Simvoni"}}>
+      <List 
         channel={channel}
         messages={messages}
         onScrollDown={onScrollDown}

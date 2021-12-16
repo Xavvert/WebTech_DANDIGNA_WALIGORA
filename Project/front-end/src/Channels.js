@@ -9,6 +9,8 @@ import Button from '@mui/material/Button';
 // Local
 import Context from './Context'
 import {useNavigate} from 'react-router-dom'
+import "./style/Header.css"
+import "./style/index.css"
 
 const styles = {
   root: {
@@ -43,7 +45,8 @@ export default function Channels() {
   return (
     <ul css={styles.root}>
       <li css={styles.channel}>
-        <Button to="/channels" component={RouterLink} style={{color: "white", textAlign: 'center', background:'	#132c6f', marginTop: '15px', marginLeft: '12%'}}>SpaceChat' Lobby</Button>
+        <Button to="/channels" component={RouterLink} style={{color: "white", textAlign: 'center', 
+        background:'#132c6f', marginTop: '15px', marginLeft: '12%', fontFamily: "Andromeda"}}>SpaceChat' Lobby</Button>
       </li>
       { channels.map( (channel, i) => (
         <li key={i} css={styles.channel}>
@@ -53,7 +56,7 @@ export default function Channels() {
               e.preventDefault()
               navigate(`/channels/${channel.id}`)
             }}
-            style={{color: "white", textAlign: 'center', background:'#301934', marginTop: '8px', marginLeft: '25%'}}>
+            style={{color: "white", textAlign: 'center', background:'#301934', marginTop: '8px', marginLeft: '25%', fontFamily: "Andromeda"}}>
             {channel.name}
           </Button>
         </li>

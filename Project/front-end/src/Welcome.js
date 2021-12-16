@@ -7,6 +7,9 @@ import { ReactComponent as ChannelIcon } from './icons/channel.svg';
 import { ReactComponent as FriendsIcon } from './icons/friends.svg';
 import { ReactComponent as SettingsIcon } from './icons/settings.svg';
 
+// Navigation
+import {useNavigate} from 'react-router-dom'
+
 const useStyles = (theme) => ({
   root: {
     height: '100%',
@@ -20,10 +23,17 @@ const useStyles = (theme) => ({
   icon: {
     width: '30%',
     fill: '#fff',
+    cursor: "pointer",
+    borderRadius: "10px",
+    '&:hover': {
+      backgroundColor: "rgb(19, 44, 111)",
+   },
+
   }
 })
 
 export default function Welcome() {
+  const naviate = useNavigate();
   const styles = useStyles(useTheme())
   return (
     <div css={styles.root}>
@@ -36,7 +46,10 @@ export default function Welcome() {
       >
         <Grid item xs>
           <div css={styles.card}>
-            <ChannelIcon css={styles.icon} />
+            <ChannelIcon css={styles.icon} onClick= {(e) => {
+              e.preventDefault()
+              naviate(`/channels/createChannel`)
+            }}  />
             <Typography color="textPrimary">
               Create channels
             </Typography>

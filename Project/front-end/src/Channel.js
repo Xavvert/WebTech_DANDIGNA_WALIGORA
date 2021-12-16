@@ -99,7 +99,7 @@ export default function Channel() {
     return (<div>loading</div>)
   }
   return (
-    <div css={styles.root} style={{ fontFamily: "Simvoni"}}>
+    <div css={styles.root} style={{ fontFamily: "Simvoni", background: "#313538"}}>
       <List 
         channel={channel}
         messages={messages}

@@ -24,7 +24,7 @@ export default function Channels() {
     oauth,
     channels, setChannels
   } = useContext(Context)
-  const naviate = useNavigate();
+  const navigate = useNavigate();
   useEffect( () => {
     const fetch = async () => {
       try{
@@ -39,7 +39,7 @@ export default function Channels() {
       }
     }
     fetch()
-  }, [oauth, setChannels])
+  }, [oauth, setChannels]) // TODO carrefull here channels to add
   return (
     <ul css={styles.root}>
       <li css={styles.channel}>
@@ -51,7 +51,7 @@ export default function Channels() {
             href={`/channels/${channel.id}`}
             onClick={ (e) => {
               e.preventDefault()
-              naviate(`/channels/${channel.id}`)
+              navigate(`/channels/${channel.id}`)
             }}
             style={{color: "white", textAlign: 'center', background:'#301934', marginTop: '8px', marginLeft: '25%'}}>
             {channel.name}

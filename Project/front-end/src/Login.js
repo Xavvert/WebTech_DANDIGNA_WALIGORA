@@ -15,6 +15,8 @@ import Contenu from './Contenu';
 import '././style/Contenu.css';
 import BtnToggle from './BtnToggle';
 import '././style/BGradient.css'
+import "./style/Header.css"
+import "./style/index.css"
 
 // Local
 import Context from './Context'
@@ -49,7 +51,7 @@ const useStyles = (theme) => ({
       marginRight: 'auto',
       marginTop: '1%',
       marginBottom: '1%',
-      width: '30%',
+      width: '50%',
     },
   },
 
@@ -83,10 +85,10 @@ const Redirect = ({
     <div css={styles.root}>
 
       <Grid style={styles.center}>
-      <p style={{ fontSize: "50px"}}>Welcome to SpaceChat'</p>
+      <p style={{ fontSize: "40px", fontFamily: "Andromeda"}}>Welcome to SpaceChat'</p>
       <img src={require("./icons/Space.png")} alt='Space Image'></img>
-      <p style={{ marginBottom: 'auto'}}>A better way to communicate</p>
-      <Button onClick={redirect} variant="contained"  style={{color: "white", padding: "10px", backgroundColor: "#4C4452",  marginTop: '20px'}}>
+      <p style={{ marginBottom: 'auto', fontFamily: "Andromeda"}}>A better way to communicate</p>
+      <Button onClick={redirect} variant="contained"  style={{color: "white", padding: "10px",  fontFamily: "Andromeda", backgroundColor: "#4C4452",  marginTop: '20px'}}>
         Login with OpenID Connect and OAuth2</Button>
         <ThemeContextProvider>
           <BtnToggle />

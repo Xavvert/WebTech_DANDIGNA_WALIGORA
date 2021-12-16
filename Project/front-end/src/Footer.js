@@ -3,6 +3,8 @@
 //import './style/App.css';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import "./style/Header.css"
+import "./style/index.css"
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -11,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
   typography:{
     margin: '6px',
     textAlign: 'center',
+    fontFamily: "AstroSpace",
   }
 }));
 

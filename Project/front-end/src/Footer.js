@@ -23,7 +23,7 @@ export default () => {
   return (
     <footer className={styles.footer}>
       <Typography variant='subtitle2' className={styles.typography} component='div'>
-      <a href="https://github.com/Xavvert/WebTech_DANDIGNA_WALIGORA">Our Github</a>  -  Made by Paul Waligora & Xavier Dandigna  -  A SpaceChat' project
+      <a href="https://github.com/Xavvert/WebTech_DANDIGNA_WALIGORA"> Our Github </a>  -  Made by Paul Waligora & Xavier Dandigna  -  A SpaceChat' project 🛰️
       </Typography>
     </footer>
   );

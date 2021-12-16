@@ -111,7 +111,7 @@ export default function Channel() {
       <Gravatar email="blah@blah.com" />
       
 
-      <Form addMessage={addMessage} channel={channel}> </Form>
+      <Form addMessage={addMessage} channel={channel} > </Form>
 
       <InputEmoji
           value={text}
@@ -122,12 +122,12 @@ export default function Channel() {
         />
       
       <Fab
-        color="primary"
+        color="secondary"
         aria-label="Latest messages"
         css={[styles.fab, scrollDown || styles.fabDisabled]}
         onClick={onClickScroll}
       >
-        <ArrowDropDownIcon />
+        <ArrowDropDownIcon> </ArrowDropDownIcon>
       </Fab>
     </div>
   );

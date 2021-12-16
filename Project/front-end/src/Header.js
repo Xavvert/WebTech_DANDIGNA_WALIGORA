@@ -76,7 +76,7 @@ export default function Header({
   const classes2 = useStylesHeader2();
 
   return (
-    <header css={styles.header} style={{borderWidth: '5px', borderColor: 'white',}}>
+    <header css={styles.header}>
       <IconButton
         color="inherit"
         aria-label="open drawer"

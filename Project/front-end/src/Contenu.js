@@ -8,7 +8,7 @@ export default function Contenu() {
     return(
         <div>
         <p className={theme ? 'contenu light' : 'contenu dark'}
-        >Hey ITS ME</p>
+        >Test DARK/LIGHT THEME</p>
         </div>
     )
 }

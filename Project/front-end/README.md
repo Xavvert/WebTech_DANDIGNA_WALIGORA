@@ -8,6 +8,9 @@ http://kyleamathews.github.io/react-gravatar/
 https://github.com/KyleAMathews/react-gravatar
 https://en.gravatar.com/site/implement/
 
+pour socket io
+https://www.youtube.com/watch?v=E4V6nbP_NoQ
+
 pour les emoticones
 https://cesarwbr.github.io/react-input-emoji/
 

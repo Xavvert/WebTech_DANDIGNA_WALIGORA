@@ -12,6 +12,9 @@ import html from 'rehype-stringify'
 import dayjs from 'dayjs'
 import calendar from 'dayjs/plugin/calendar'
 import updateLocale from 'dayjs/plugin/updateLocale'
+
+import ModifMessage from './ModifMessage'
+
 dayjs.extend(calendar)
 dayjs.extend(updateLocale)
 dayjs.updateLocale('en', {
@@ -106,6 +109,7 @@ export default forwardRef(({
             )
         })}
       </ul>
+      
       <div ref={scrollEl} />
     </div>
   )

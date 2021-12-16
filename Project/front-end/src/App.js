@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import './App.css';
+import './style/App.css';
 /** @jsxImportSource @emotion/react */
 import { useContext } from 'react'
 // Local
@@ -12,7 +12,7 @@ import Context from './Context'
 import { MyUser } from './MyUser';
 
 import Contenu from './Contenu';
-import './Contenu.css';
+import '././style/Contenu.css';
 import BtnToggle from './BtnToggle';
 // Rooter
 import {

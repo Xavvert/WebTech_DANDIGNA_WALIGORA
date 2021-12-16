@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import './BtnToggle.css'
+import '././style/BtnToggle.css'
 import { ThemeContext } from './ThemeContext'
 
 export default function BtnToggle() {

@@ -12,7 +12,7 @@ import Grid from '@mui/material/Grid';
 import ThemeContextProvider from './ThemeContext';
 
 import Contenu from './Contenu';
-import './Contenu.css';
+import '././style/Contenu.css';
 import BtnToggle from './BtnToggle';
 
 // Local

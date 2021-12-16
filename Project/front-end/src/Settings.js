@@ -20,6 +20,7 @@ mainSettings: {
     width: "100%",
     display: "flex",
     justifyContent: "center",
+    background: "#1d1135",
 },
 center:{
     width: 'auto',

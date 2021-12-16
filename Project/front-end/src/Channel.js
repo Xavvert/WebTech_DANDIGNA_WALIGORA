@@ -7,13 +7,17 @@ import axios from 'axios';
 import { useTheme } from '@mui/styles';
 import {Fab} from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import Picker from 'emoji-picker-react';
+
 // Local
 import Form from './channel/Form'
 import List from './channel/List'
 import Context from './Context'
 import { useNavigate, useParams } from 'react-router-dom'
 import Gravatar from 'react-gravatar'
+
+import React from 'react'
+import InputEmoji from 'react-input-emoji'
+
 
 const useStyles = (theme) => ({
   root: {
@@ -35,6 +39,9 @@ const useStyles = (theme) => ({
 })
 
 export default function Channel() {
+
+  
+
   const navigate = useNavigate()
   const { id } = useParams()
   const {channels, oauth} = useContext(Context)
@@ -69,11 +76,13 @@ export default function Channel() {
   const [showPicker, setShowPicker] = useState(false);
 
 
-  const onEmojiClick = (event, emojiObject) => {
-    setInputStr(prevInput => prevInput + emojiObject.emoji);
-    setShowPicker(false);
-  };
+ 
 
+  const [ text, setText ] = useState('')
+  
+  function handleOnEnter (text) {
+    console.log('enter', text)
+  }
 
 
   const onScrollDown = (scrollDown) => {
@@ -100,6 +109,14 @@ export default function Channel() {
       
 
       <Form addMessage={addMessage} channel={channel}> </Form>
+
+      <InputEmoji
+          value={text}
+          onChange={setText}
+          cleanOnEnter
+          onEnter={addMessage}
+          placeholder="Type a message"
+        />
       
       <Fab
         color="primary"

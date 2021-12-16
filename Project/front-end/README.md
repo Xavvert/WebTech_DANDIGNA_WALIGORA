@@ -9,14 +9,12 @@ https://github.com/KyleAMathews/react-gravatar
 https://en.gravatar.com/site/implement/
 
 pour les emoticones
-https://www.youtube.com/watch?v=vsIDc9FTxzM
 https://cesarwbr.github.io/react-input-emoji/
-https://www.cluemediator.com/how-to-add-emoji-picker-in-the-react
+
 
 pour le gradient 
-https://jonkelley88.github.io/react-gradient/
-https://www.npmjs.com/package/react-gradient
 https://www.youtube.com/watch?v=wxwzyWNccYM
+
 ## Available Scripts
 
 In the project directory, you can run:

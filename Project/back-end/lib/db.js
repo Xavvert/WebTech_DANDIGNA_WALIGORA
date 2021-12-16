@@ -41,10 +41,15 @@ module.exports = {
       if(!original) throw Error('Unregistered channel id')
       store.channels[id] = merge(original, channel)
     },
-    delete: (id) => {
-      const original = store.channels[id]
-      if(!original) throw Error('Unregistered channel id')
-      delete store.channels[id]
+    delete: async (id) => {
+      db.del(`channels:${id}`, function(err) {
+        if(err) {
+          console.log("error")
+        } else {
+          console.log("gooood")
+        }
+      })
+      return merge(channel, {id: id})
     }
   },
   messages: {

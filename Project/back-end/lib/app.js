@@ -37,12 +37,11 @@ app.get('/channels/:id', async (req, res) => {
   res.json(channel)
 })
 
-app.post('/channelDelete/:id'), async (req, res) => {
-  console.log("ici")
+app.delete('/channelDelete/:id', async (req, res) => {
   const channel = await db.channels.delete(req.params.id)
-  res.json(channel)
-  
-}
+  res.json("hey")
+})
+
 
 app.put('/channels/:id', async (req, res) => {
   const channel = await db.channels.update(req.body)

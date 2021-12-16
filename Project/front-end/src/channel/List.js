@@ -29,6 +29,9 @@ import dayjs from "dayjs";
 import calendar from "dayjs/plugin/calendar";
 import updateLocale from "dayjs/plugin/updateLocale";
 import SettingsIcon from "@mui/icons-material/Settings";
+// redirect
+import { useNavigate, useParams } from 'react-router-dom'
+
 dayjs.extend(calendar);
 dayjs.extend(updateLocale);
 dayjs.updateLocale("en", {
@@ -84,6 +87,8 @@ export default forwardRef(({ channel, messages, onScrollDown }, ref) => {
   const {
     oauth,
   } = useContext(Context)
+  const navigate = useNavigate()
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -115,12 +120,14 @@ export default forwardRef(({ channel, messages, onScrollDown }, ref) => {
     return () => rootNode.removeEventListener("scroll", handleScroll);
   });
   async function handleDelete() {
-    console.log("allalalalal")
-    const id = "ccfb7b47-0983-462e-b87f-974670811757"
     try {
-      const message  = await axios.post(
-        `http://localhost:3001/channelDelete/${id}`
+      const message  = await axios.delete(
+        `http://localhost:3001/channelDelete/${channel.id}`
       );
+      console.log(message)
+      handleClose();
+      navigate('/channels')
+
     } catch (err) {
       console.log(err)
     }

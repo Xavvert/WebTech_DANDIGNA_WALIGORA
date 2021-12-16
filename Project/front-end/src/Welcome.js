@@ -6,6 +6,7 @@ import { Grid, Typography } from '@mui/material';
 import { ReactComponent as ChannelIcon } from './icons/channel.svg';
 import { ReactComponent as FriendsIcon } from './icons/friends.svg';
 import { ReactComponent as SettingsIcon } from './icons/settings.svg';
+import '././style/BGradient.css';
 
 // Navigation
 import {useNavigate} from 'react-router-dom'
@@ -15,7 +16,7 @@ const useStyles = (theme) => ({
     height: '100%',
     flex: '1 1 auto',
     display: 'flex',
-    background: "linear-gradient(45deg, #32174d 70%, #191f45 80%)",
+    //background: "linear-gradient(45deg, #32174d 70%, #191f45 80%)",
   },
   card: {
     textAlign: 'center',
@@ -36,6 +37,7 @@ export default function Welcome() {
   const navigate = useNavigate();
   const styles = useStyles(useTheme())
   return (
+    <div className='wrapper'>
     <div css={styles.root}>
       <Grid
         container
@@ -75,6 +77,7 @@ export default function Welcome() {
           </div>
         </Grid>
       </Grid>
+    </div>
     </div>
   );
 }

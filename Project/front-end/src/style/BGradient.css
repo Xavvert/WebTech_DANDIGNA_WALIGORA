@@ -5,7 +5,7 @@ background: linear-gradient(45deg,
 #1d1135, #0c164f, 	#1f3e5a, #281c3c, #3c1c31, #37425B,
 #1d1135, #0c164f, 	#1f3e5a, #281c3c, #3c1c31, #37425B);
 background-size: 1500% 100%;
-animation: gradient 25s linear infinite;
+animation: gradient 35s linear infinite;
 animation-direction: alternative;
 }
 

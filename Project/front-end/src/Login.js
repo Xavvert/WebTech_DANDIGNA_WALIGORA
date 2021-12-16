@@ -14,6 +14,7 @@ import ThemeContextProvider from './ThemeContext';
 import Contenu from './Contenu';
 import '././style/Contenu.css';
 import BtnToggle from './BtnToggle';
+import '././style/BGradient.css'
 
 // Local
 import Context from './Context'
@@ -40,7 +41,6 @@ const sha256 = (buffer) => {
 const useStyles = (theme) => ({
   root: {
     flex: '1 1 auto',
-    background: "linear-gradient(-45deg, #1d1135 70%, #0000a0 120%)",
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -79,6 +79,7 @@ const Redirect = ({
     window.location = url
   }
   return (
+    <div  className='wrapper'>
     <div css={styles.root}>
 
       <Grid style={styles.center}>
@@ -95,6 +96,7 @@ const Redirect = ({
       </Grid>
       
       
+    </div>
     </div>
   )
 }

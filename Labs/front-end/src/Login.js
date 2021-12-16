@@ -170,7 +170,8 @@ export default function Login({
       return (
         <Redirect codeVerifier={codeVerifier} config={config} css={styles.root} />
       )
-    }else{ // Yes: user is already logged in, great, is is working
+    }else{ // Yes: user is already logged in, great, it is working
+      onUser(cookies.oauth)
       return (
         <Tokens oauth={cookies.oauth} css={styles.root} />
       )

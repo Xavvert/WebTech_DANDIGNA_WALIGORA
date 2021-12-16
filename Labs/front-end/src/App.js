@@ -20,7 +20,8 @@ const styles = {
 };
 
 export default function App() {
-  const [user, setUser] = useState("polo");
+  const [user, setUser] = useState(null);
+  console.log(user)
   const [drawerMobileVisible, setDrawerMobileVisible] = useState(false);
   const [channelRoute, setChannelRoute] = useState(null)
   const drawerToggleListener = () => {

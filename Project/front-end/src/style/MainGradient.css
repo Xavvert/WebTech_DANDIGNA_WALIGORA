@@ -1,0 +1,15 @@
+.wrapper {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+    #1d1135, #0c164f, 	#1f3e5a, #281c3c, #3c1c31, #37425B,
+    #1d1135, #0c164f, 	#1f3e5a, #281c3c, #3c1c31, #37425B);
+    background-size: 1500% 100%;
+    animation: gradient 35s linear infinite;
+    animation-direction: alternative;
+    }
+    
+    @keyframes gradient {
+        0% {background-position: 0%}
+        100% {background-position: 100%}
+    }

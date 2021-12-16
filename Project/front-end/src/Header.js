@@ -23,6 +23,7 @@ const useStylesHeader1 = makeStyles({
     color: 'white',
     fontSize: 30,
     fontFamily: 'AstroSpace',
+    
   },
 });
 
@@ -38,7 +39,7 @@ const useStylesHeader2 = makeStyles({
 
 const useStyles = (theme) => ({
   header: {
-    padding: theme.spacing(1),
+    padding: theme.spacing(0.5),
     backgroundColor: '#a7a6ba',
     flexShrink: 0,
   },
@@ -75,7 +76,7 @@ export default function Header({
   const classes2 = useStylesHeader2();
 
   return (
-    <header css={styles.header}>
+    <header css={styles.header} style={{borderWidth: '5px', borderColor: 'white',}}>
       <IconButton
         color="inherit"
         aria-label="open drawer"

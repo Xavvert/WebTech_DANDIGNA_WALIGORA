@@ -131,15 +131,15 @@ return(
         helperText={missingEmail ? "You have to fullfill the Email" : ""}
     />
 
-<FormControl error={missingGender} component="fieldset" style={styles.genderField} >
+<FormControl error={missingGender} component="fieldset" color="warning"  style={styles.genderField} >
         <FormLabel required component="legend" style={{float: "right",}}>Gender</FormLabel>
-        <RadioGroup aria-label="Gender" row >
-            <FormControlLabel value="female" control={<Radio />} label="Female" />
-            <FormControlLabel value="male" control={<Radio />} label="Male" />
+        <RadioGroup aria-label="Gender" row color="warning" >
+            <FormControlLabel value="female" color="warning"  control={<Radio />} label="Female" />
+            <FormControlLabel value="male" color="warning"  control={<Radio />} label="Male" />
         </RadioGroup>
     </FormControl>
 
-    <FormControl  fullWidth color="warning"  style={{marginTop:'10px'}}>
+    <FormControl  fullWidth color="warning" style={{marginTop:'10px'}}>
     <InputLabel required error={missingLanguage} >Prefered Language</InputLabel>
     <Select>
         <MenuItem value={"English"}>English</MenuItem>

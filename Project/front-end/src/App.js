@@ -10,6 +10,7 @@ import Main from './Main'
 import Login from './Login'
 import Context from './Context'
 import { MyUser } from './MyUser';
+//import '././style/MainGradient.css'
 
 import Contenu from './Contenu';
 import '././style/Contenu.css';
@@ -27,8 +28,8 @@ const styles = {
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#565E71',
-    padding: '50px',
+    backgroundColor: '#565656',
+    padding: '25px',
   },
 }
 
@@ -42,8 +43,6 @@ export default function App() {
     setDrawerMobileVisible(!drawerMobileVisible)
   }
 
-
-  
   const gochannels = (<Navigate
     to={{
       pathname: "/channels",
@@ -66,7 +65,7 @@ export default function App() {
 
   return (
     
-    <div className="App" css={styles.root}>
+    <div className="App" /*className="wrapper"*/ css={styles.root}>
       <Header drawerToggleListener={drawerToggleListener}></Header>
       <Routes>
         <Route exact path="/" element={oauth ? (gochannels) : (<Login />)}/>

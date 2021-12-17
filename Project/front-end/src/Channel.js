@@ -107,10 +107,8 @@ export default function Channel() {
         ref={listRef}
       >
       </List>
-      <Gravatar email="mathews.kyle@gmail.com" />
-      <Gravatar email="blah@blah.com" />
-      
-
+     
+    
       <Form addMessage={addMessage} channel={channel} > </Form>
 
       <InputEmoji

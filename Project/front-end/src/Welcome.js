@@ -6,6 +6,7 @@ import { Grid, Typography } from '@mui/material';
 import { ReactComponent as ChannelIcon } from './icons/channel.svg';
 import { ReactComponent as FriendsIcon } from './icons/friends.svg';
 import { ReactComponent as SettingsIcon } from './icons/settings.svg';
+import { Avatar } from '@mui/material';
 import '././style/BGradient.css';
 import "./style/Header.css"
 import "./style/index.css"

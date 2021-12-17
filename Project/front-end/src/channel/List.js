@@ -12,6 +12,7 @@ import html from 'rehype-stringify'
 import dayjs from 'dayjs'
 import calendar from 'dayjs/plugin/calendar'
 import updateLocale from 'dayjs/plugin/updateLocale'
+import Gravatar from 'react-gravatar'
 
 import ModifMessage from './ModifMessage'
 
@@ -98,14 +99,16 @@ export default forwardRef(({
             .processSync(message.content);
             return (
               <li key={i} css={styles.message}>
+                <Gravatar style={{float:'left', marginRight: '5px', height: '40px', width: '40px'}} email="mathews.kyle@gmail.com" />
                 <p>
-                  <span>{message.author}</span>
-                  {' - '}
-                  <span>{dayjs().calendar(message.creation)}</span>
+                  <span style={{color: 'lightblue'}}>{message.author}</span>
+                  {' says '}
+                  <span style={{float:'right', color: '#c09bf3'}}>{dayjs().calendar(message.creation)}</span>
                 </p>
                 <div dangerouslySetInnerHTML={{__html: value}}>
                 </div>
               </li>
+               
             )
         })}
       </ul>

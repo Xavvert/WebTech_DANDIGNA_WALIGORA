@@ -41,7 +41,7 @@ export default function CreateChannel() {
             }
           );
           console.log(message)
-          setChannels([...channels, {name: message.name, id: message.id}])
+          setChannels([...channels, {name: channelName, id: message.data.id}])
           navigate(`/channels`);
         }}
         css={styles.createChannelWrapper}

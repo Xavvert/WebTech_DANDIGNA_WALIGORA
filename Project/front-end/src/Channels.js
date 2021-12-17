@@ -33,6 +33,7 @@ export default function Channels() {
             'Authorization': `Bearer ${oauth.access_token}`
           }
         })
+        
         setChannels(channels)
       }catch(err){
         console.error(err)

@@ -85,7 +85,7 @@ const useStyles = (theme) => ({
 
 export default forwardRef(({ channel, messages, onScrollDown }, ref) => {
   const {
-    oauth,
+    oauth,channels, setChannels
   } = useContext(Context)
   const navigate = useNavigate()
 
@@ -124,26 +124,13 @@ export default forwardRef(({ channel, messages, onScrollDown }, ref) => {
       const message  = await axios.delete(
         `http://localhost:3001/channelDelete/${channel.id}`
       );
-      console.log(message)
+      setChannels(channels.filter(ch => ch.id != channel.id))
       handleClose();
       navigate('/channels')
 
     } catch (err) {
       console.log(err)
     }
-    // const fetch = async () => {
-    //   try{
-    //     const {data: channels} = await axios.get('http://localhost:3001/channels', {
-    //       headers: {
-    //         'Authorization': `Bearer ${oauth.access_token}`
-    //       }
-    //     })
-    //     setChannels(channels)
-    //   }catch(err){
-    //     console.error(err)
-    //   }
-    // }
-    // fetch()
   }
   return (
     <div css={styles.root} ref={rootEl}>

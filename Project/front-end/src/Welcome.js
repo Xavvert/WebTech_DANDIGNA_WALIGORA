@@ -10,6 +10,7 @@ import { Avatar } from '@mui/material';
 import '././style/BGradient.css';
 import "./style/Header.css"
 import "./style/index.css"
+import Particles from "react-tsparticles";
 
 // Navigation
 import {useNavigate} from 'react-router-dom'
@@ -37,10 +38,21 @@ const useStyles = (theme) => ({
 })
 
 export default function Welcome() {
+  
+    const particlesInit = (main) => {
+      console.log(main);
+  
+      // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
+    };
+  
+    const particlesLoaded = (container) => {
+      console.log(container);
+    };
   const navigate = useNavigate();
   const styles = useStyles(useTheme())
   return (
     <div className='wrapper'>
+       
     <div css={styles.root}>
       <Grid
         container

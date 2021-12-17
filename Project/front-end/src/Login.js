@@ -16,7 +16,8 @@ import '././style/Contenu.css';
 import BtnToggle from './BtnToggle';
 import '././style/BGradient.css'
 import "./style/Header.css"
-import "./style/index.css"
+
+import Particles from "react-tsparticles";
 
 // Local
 import Context from './Context'
@@ -80,11 +81,99 @@ const Redirect = ({
     ].join('')
     window.location = url
   }
+  
+  const particlesInit = (main) => {
+    console.log(main);
+
+    // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
+  };
+
+  const particlesLoaded = (container) => {
+    console.log(container);
+  };
   return (
     <div  className='wrapper'>
+     
     <div css={styles.root}>
-
+    <Particles
+      id="tsparticles"
+      init={particlesInit}
+      loaded={particlesLoaded}
+      options={{
+        fpsLimit: 60,
+        interactivity: {
+          events: {
+            onClick: {
+              enable: true,
+              mode: "push",
+            },
+            onHover: {
+              enable: true,
+              mode: "repulse",
+            },
+            resize: true,
+          },
+          modes: {
+            bubble: {
+              distance: 200,
+              duration: 2,
+              opacity: 0.8,
+              size: 30,
+            },
+            push: {
+              quantity: 4,
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4,
+            },
+          },
+        },
+        particles: {
+          color: {
+            value: "#ffffff",
+          },
+          links: {
+            color: "#ffffff",
+            distance: 120,
+            enable: true,
+            opacity: 0.5,
+            width: 1,
+          },
+          collisions: {
+            enable: true,
+          },
+          move: {
+            direction: "none",
+            enable: true,
+            outMode: "bounce",
+            random: false,
+            speed: 6,
+            straight: false,
+          },
+          number: {
+            density: {
+              enable: true,
+              value_area: 800,
+            },
+            value: 25,
+          },
+          opacity: {
+            value: 0.5,
+          },
+          shape: {
+            type: "circle",
+          },
+          size: {
+            random: true,
+            value: 5,
+          },
+        },
+        detectRetina: true,
+      }}
+    />
       <Grid style={styles.center}>
+        
       <p style={{ fontSize: "55px", fontFamily: "Andromeda"}}>Welcome to SpaceChat'</p>
       <img src={require("./icons/Space.png")} alt='Space Image'></img>
       <p style={{ marginBottom: 'auto', fontFamily: "Andromeda"}}># A better way to communicate #</p>

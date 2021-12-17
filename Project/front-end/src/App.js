@@ -12,6 +12,8 @@ import Context from './Context'
 import { MyUser } from './MyUser';
 //import '././style/MainGradient.css'
 
+import Particles from "react-tsparticles";
+
 import Contenu from './Contenu';
 import '././style/Contenu.css';
 import BtnToggle from './BtnToggle';
@@ -33,7 +35,24 @@ const styles = {
   },
 }
 
+
+
 export default function App() {
+  const App = () => {
+    const particlesInit = (main) => {
+      console.log(main);
+  
+      // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
+    };
+  
+    const particlesLoaded = (container) => {
+      console.log(container);
+    };
+  
+    return (
+      <Particles id="tsparticles" url="http://foo.bar/particles.json" init={particlesInit} loaded={particlesLoaded} />
+    );
+  };
   const [username, setNew] = useState("My Account")
   const [avatar, setNewAvatar] = useState('')
   const location = useLocation()

@@ -45,8 +45,6 @@ module.exports = {
       db.del(`channels:${id}`, function(err) {
         if(err) {
           console.log("error")
-        } else {
-          console.log("gooood")
         }
       })
       return merge(channel, {id: id})

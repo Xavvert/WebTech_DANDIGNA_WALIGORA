@@ -136,7 +136,7 @@ export default forwardRef(({ channel, messages, onScrollDown }, ref) => {
     <div css={styles.root} ref={rootEl}>
       <SettingsIcon
         css={{
-          float: "right",
+          float: "left",
           margin: "30px",
           transform: "scale(1.8)",
           cursor: "pointer",

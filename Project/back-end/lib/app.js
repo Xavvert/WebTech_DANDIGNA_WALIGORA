@@ -27,7 +27,6 @@ app.get('/channels', authenticate, async (req, res) => {
 })
 
 app.post('/channels', async (req, res) => {
-  console.log("ici")
   const channel = await db.channels.create(req.body)
   res.status(201).json(channel)
 })

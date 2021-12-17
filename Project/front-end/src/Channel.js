@@ -16,9 +16,10 @@ import { useNavigate, useParams } from 'react-router-dom'
 import Gravatar from 'react-gravatar'
 
 import React from 'react'
-import InputEmoji from 'react-input-emoji'
 import "./style/Header.css"
 import "./style/index.css"
+
+//import Picker from 'emoji-picker-react';
 
 
 
@@ -107,17 +108,8 @@ export default function Channel() {
         ref={listRef}
       >
       </List>
-     
     
       <Form addMessage={addMessage} channel={channel} > </Form>
-
-      <InputEmoji
-          value={text}
-          onChange={setText}
-          cleanOnEnter
-          onEnter={addMessage}
-          placeholder="Type a message"
-        />
       
       <Fab
         color="secondary"

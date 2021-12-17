@@ -38,7 +38,7 @@ app.get('/channels/:id', async (req, res) => {
 
 app.delete('/channelDelete/:id', async (req, res) => {
   const channel = await db.channels.delete(req.params.id)
-  res.json("hey")
+  res.json(channel)
 })
 
 

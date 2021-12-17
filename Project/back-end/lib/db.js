@@ -47,7 +47,7 @@ module.exports = {
           console.log("error")
         }
       })
-      return merge(channel, {id: id})
+      return {id: id}
     }
   },
   messages: {
@@ -86,8 +86,9 @@ module.exports = {
     create: async (user) => {
       if(!user.username) throw Error('Invalid user')
       const id = uuid()
+      user.channelsBelong = []
       await db.put(`users:${id}`, JSON.stringify(user))
-      return merge(user, {id: id})
+      return merge(user, {id: id})  
     },
     get: async (id) => {
       if(!id) throw Error('Invalid id')

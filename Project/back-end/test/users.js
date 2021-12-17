@@ -17,7 +17,7 @@ describe('users', () => {
     users.should.eql([])
   })
   
-  it('list one element', async () => {
+  it("list one element (doesn't belong to any channel)", async () => {
     // Create a user
     await supertest(app)
     .post('/users')
@@ -28,7 +28,8 @@ describe('users', () => {
     .expect(200)
     users.should.match([{
       id: /^\w+-\w+-\w+-\w+-\w+$/,
-      username: 'user_1'
+      username: 'user_1',
+      channelsBelong: []
     }])
   })
   
@@ -56,5 +57,4 @@ describe('users', () => {
     .expect(200)
     user.username.should.eql('user_1')
   })
-  
 })

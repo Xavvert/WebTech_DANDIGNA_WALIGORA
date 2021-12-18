@@ -8,6 +8,8 @@ import axios from 'axios';
 import { Button, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { useTheme } from '@mui/styles';
+import InputEmoji from "react-input-emoji";
+import React from "react";
 
 const useStyles = (theme) => {
   // See https://github.com/mui-org/material-ui/blob/next/packages/material-ui/src/OutlinedInput/OutlinedInput.js
@@ -46,12 +48,17 @@ export default function Form({
     addMessage(message)
     setContent('')
   }
+  /*
   const handleChange = (e) => {
     setContent(e.target.value)
   }
-  return (
-    <form css={styles.form} onSubmit={onSubmit} noValidate>
-      <TextField
+
+  const [text, setText] = useState("");
+
+  function handleOnEnter(text) {
+    console.log("enter", text);
+  }
+<TextField
         id="outlined-multiline-flexible"
         label="Message"
         multiline
@@ -72,6 +79,17 @@ export default function Form({
           Send
         </Button>
       </div>
+      */
+  return (
+    <form css={styles.form} onSubmit={onSubmit} noValidate>
+
+    <InputEmoji
+      value={content}
+      onChange={setContent}
+      cleanOnEnter
+      onEnter={onSubmit}
+      placeholder="Type a message then press 'Enter' "
+    />
     </form>
   )
 }

@@ -14,7 +14,6 @@ https://www.npmjs.com/package/react-tsparticles
 pour les emoticones
 https://cesarwbr.github.io/react-input-emoji/
 
-
 pour le gradient 
 https://www.youtube.com/watch?v=wxwzyWNccYM
 

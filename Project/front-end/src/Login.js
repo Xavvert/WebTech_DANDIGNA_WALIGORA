@@ -179,10 +179,7 @@ const Redirect = ({
       <p style={{ marginBottom: 'auto', fontFamily: "Andromeda"}}># A better way to communicate #</p>
       <Button onClick={redirect} variant="contained"  style={{color: "white", padding: "10px",  fontFamily: "Andromeda", backgroundColor: "#4C4452",  marginTop: '20px'}}>
         Login with OpenID Connect and OAuth2</Button>
-        <ThemeContextProvider>
-          <BtnToggle />
-        <Contenu/>
-        </ThemeContextProvider>
+        
        
       </Grid>
       
@@ -191,6 +188,11 @@ const Redirect = ({
     </div>
   )
 }
+
+/*<ThemeContextProvider>
+          <BtnToggle />
+        <Contenu/>
+        </ThemeContextProvider>*/
 
 const Tokens = ({
   oauth

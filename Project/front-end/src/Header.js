@@ -12,7 +12,7 @@ import { makeStyles } from '@mui/styles';
 import { Chip } from '@mui/material';
 import "./style/Header.css"
 import "./style/index.css"
-
+import PlaySound from "./PlaySound";
 
 const useStylesHeader1 = makeStyles({
   root: {
@@ -75,6 +75,10 @@ export default function Header({
   const classes1 = useStylesHeader1();
   const classes2 = useStylesHeader2();
 
+  
+
+  
+
   return (
     <header css={styles.header}>
       <IconButton
@@ -88,15 +92,20 @@ export default function Header({
       {
         oauth ?
           <div className={classes2.root} >
+            
             <Chip label={oauth.email} style={{color: "white", backgroundColor: "darkgreen", float: 'left', fontFamily: "AstroSpace"}} ></Chip>
+            
             <Typography  style={{color: "white",textAlign: 'center', fontFamily: "AstroSpace", paddingTop:"5px", marginRight:"120px",}}> A SpaceChat' Project</Typography>
+            
             <Button onClick={onClickLogout} style={{color: "white", marginTop: "-29px", padding: "4px", 
             backgroundColor: "#C70039", float: 'right', fontFamily: "AstroSpace"}}>
             Logout</Button>
           </div>
         :
         <header>
-        <Typography style={{fontFamily: "AstroSpace",}} className={classes1.root}>🚀 We're, we're landing on SpaceChat' Sir... 👨‍🚀 Roger that!</Typography>
+         
+        <Typography /*style={{fontFamily: "AstroSpace",fontSize: '30',}}*/ className={classes1.root}>🚀 We're, we're landing on SpaceChat' Sir... 👨‍🚀 Roger that!</Typography>
+        <PlaySound />
         </header>
       }
       

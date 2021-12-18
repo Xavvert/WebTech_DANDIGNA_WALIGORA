@@ -26,10 +26,17 @@ app.get('/channels', authenticate, async (req, res) => {
   res.json(channels)
 })
 
+// app.post('/channels', async (req, res) => {
+//   const channel = await db.channels.create(req.body)
+//   res.status(201).json(channel)
+// })
+
 app.post('/channels', async (req, res) => {
   const channel = await db.channels.create(req.body)
+  // add the id of this channel to the array ChannelBelong of the user
+  const user = await db.users.updateUserChannels(channel.id, req.body.userId)
   res.status(201).json(channel)
-})
+}) 
 
 app.get('/channels/:id', async (req, res) => {
   const channel = await db.channels.get(req.params.id)
@@ -37,7 +44,9 @@ app.get('/channels/:id', async (req, res) => {
 })
 
 app.delete('/channelDelete/:id', async (req, res) => {
+  console.log(req.body)
   const channel = await db.channels.delete(req.params.id)
+  await db.users.deleteUserChannels(channel.id, req.body.userId)
   res.json(channel)
 })
 
@@ -85,5 +94,6 @@ app.put('/users/:id', async (req, res) => {
   const user = await db.users.update(req.body)
   res.json(user)
 })
+
 
 module.exports = app

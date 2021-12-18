@@ -121,8 +121,13 @@ export default forwardRef(({ channel, messages, onScrollDown }, ref) => {
   });
   async function handleDelete() {
     try {
+      console.log(oauth.id)
       const message  = await axios.delete(
-        `http://localhost:3001/channelDelete/${channel.id}`
+        `http://localhost:3001/channelDelete/${channel.id}`, {
+          data: {
+            userId: oauth.id
+          } 
+        }
       );
       setChannels(channels.filter(ch => ch.id != channel.id))
       handleClose();

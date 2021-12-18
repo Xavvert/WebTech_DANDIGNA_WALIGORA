@@ -140,6 +140,24 @@ const LoadToken = ({
           code: `${code}`,
         }))
         removeCookie('code_verifier')
+        const {data: users} = await axios.get('http://localhost:3001/users')
+        const payload = JSON.parse(
+          Buffer.from(
+            data.id_token.split('.')[1], 'base64'
+          ).toString('utf-8'))
+        if (!users.filter(user => user.username == payload.email).length){
+          // the user doesn't exist, we have to add him in the data base
+          const {data: user} = await axios.post('http://localhost:3001/users', {
+            username: payload.email
+          })
+          data.email = user.username
+          data.id = user.id 
+        } else {
+          // the user already exist, but we have to add the id and the email of the user in the cookie
+          const theUser = users.find(user => user.username == payload.email)
+          data.email = theUser.username
+          data.id = theUser.id
+        }
         setOauth(data)
         navigate('/')
       }catch (err) {

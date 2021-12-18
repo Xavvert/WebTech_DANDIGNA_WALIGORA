@@ -33,11 +33,16 @@ export default function CreateChannel() {
       <form
         onSubmit={async (e) => {
           e.preventDefault();
+          const {data: user}  = await axios.get(
+            `http://localhost:3001/users`
+          );
+          console.log(user)
           const channelName = e.target[0].value;
           const message  = await axios.post(
             `http://localhost:3001/channels`,
             {
               name: channelName,
+              userId: oauth.id 
             }
           );
           console.log(message)

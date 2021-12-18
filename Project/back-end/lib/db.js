@@ -118,6 +118,22 @@ module.exports = {
       if(!original) throw Error('Unregistered user id')
       store.users[id] = merge(original, user)
     },
+    updateUserChannels: async (channelId, userId) => {
+      if(!userId) throw Error('Invalid id')
+      if(!channelId) throw Error('Invalid id')
+      const data = await db.get(`users:${userId}`)
+      const user = JSON.parse(data)
+      user.channelsBelong.push(channelId)
+      await db.put(`users:${userId}`, JSON.stringify(user))
+    },
+    deleteUserChannels: async (channelId, userId) => {
+      if(!userId) throw Error('Invalid id')
+      if(!channelId) throw Error('Invalid id')
+      const data = await db.get(`users:${userId}`)
+      const user = JSON.parse(data)
+      user.channelsBelong.filter(channel => channel != channelId )
+      await db.put(`users:${userId}`, JSON.stringify(user))
+    },
     delete: (id, user) => {
       const original = store.users[id]
       if(!original) throw Error('Unregistered user id')

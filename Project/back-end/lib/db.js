@@ -131,7 +131,7 @@ module.exports = {
       if(!channelId) throw Error('Invalid id')
       const data = await db.get(`users:${userId}`)
       const user = JSON.parse(data)
-      user.channelsBelong.filter(channel => channel != channelId )
+      user.channelsBelong = user.channelsBelong.filter(channel => channel != channelId )
       await db.put(`users:${userId}`, JSON.stringify(user))
     },
     delete: (id, user) => {

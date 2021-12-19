@@ -10,6 +10,7 @@ import {
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import TextField from '@mui/material/TextField';
 // Buttons
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -32,6 +33,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 // redirect
 import { useNavigate, useParams } from 'react-router-dom'
 
+
 dayjs.extend(calendar);
 dayjs.extend(updateLocale);
 dayjs.updateLocale("en", {
@@ -41,7 +43,8 @@ dayjs.updateLocale("en", {
 });
 
 const style = {
-  backgroundColor: "white",
+  borderRadius: "20px",
+  backgroundColor: "#3700B3",
   position: "absolute",
   top: "50%",
   left: "50%",
@@ -179,14 +182,20 @@ export default forwardRef(({ channel, messages, onScrollDown }, ref) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h1">
+          <Typography id="modal-modal-title" variant="h6" component="h1" color="white">
             Parameters of the channel
           </Typography>
           <Typography id="modal-modal-description">
+            
+            <Typography color="white" sx={{margin: "10px"}}>
+            Add people to this channel (with address email):
+          </Typography>
+          <TextField id="outlined-basic" label="Email" variant="outlined" />
             <Button variant="outlined" css={{color: "red", margin: "10px"}} startIcon={<DeleteIcon /> } onClick={handleDelete}>
               Delete this channel
             </Button>
           </Typography>
+          
         </Box>
       </Modal>
     </div>

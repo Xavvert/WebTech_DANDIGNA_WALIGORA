@@ -44,7 +44,6 @@ app.get('/channels/:id', async (req, res) => {
 })
 
 app.delete('/channelDelete/:id', async (req, res) => {
-  console.log(req.body)
   const channel = await db.channels.delete(req.params.id)
   await db.users.deleteUserChannels(channel.id, req.body.userId)
   res.json(channel)
@@ -92,6 +91,29 @@ app.get('/users/:id', async (req, res) => {
 
 app.put('/users/:id', async (req, res) => {
   const user = await db.users.update(req.body)
+  res.json(user)
+})
+
+//invite
+
+app.get('/invite', async (req, res) => {
+  const invites = await db.invite.list()
+  res.json(invites)
+})
+
+app.post('/invite', async (req, res) => {
+  const invite = await db.invite.create(req.body.userInvited, req.body.adminUser, req.body.channelId, req.body.channelName)
+  res.status(201).json(invite)
+})
+
+app.delete('/invite/:id', async (req, res) => {
+  const invite = await db.invite.delete(req.params.id)
+  res.json(invite)
+})
+
+//Others
+app.post('/updateChannelBelong', async (req, res) => {
+  const user = await db.users.updateUserChannels(req.body.channelId, req.body.userId)
   res.json(user)
 })
 

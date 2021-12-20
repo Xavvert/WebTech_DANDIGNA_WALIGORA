@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, {useContext} from "react";
+import React, {useContext, useState, useEffect} from "react";
 import {
   forwardRef,
   useImperativeHandle,
@@ -140,6 +140,25 @@ export default forwardRef(({ channel, messages, onScrollDown }, ref) => {
       console.log(err)
     }
   }
+  // return pending invitation
+  const [invited, setInvited] = useState([])
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const {data: invited}  = await axios.get(
+        `http://localhost:3001/invite`
+      );
+      console.log(oauth.email)
+      console.log(channel.id)
+      const inviteds = invited.filter((invite)=> {
+        if (invite.adminUser == oauth.email && invite.channelId == channel.id) {
+          return invite
+        }
+      })
+      setInvited(inviteds)
+      console.log(inviteds)
+    }
+    fetchUsers()
+  }, [])
   return (
     <div css={styles.root} ref={rootEl}>
       <SettingsIcon
@@ -190,7 +209,40 @@ export default forwardRef(({ channel, messages, onScrollDown }, ref) => {
             <Typography color="white" sx={{margin: "10px"}}>
             Add people to this channel (with address email):
           </Typography>
-          <TextField id="outlined-basic" label="Email" variant="outlined" />
+          <form onSubmit={
+            async (e) => {
+              e.preventDefault();
+              try{
+                console.log(channel.name)
+                const message  = await axios.post(
+                  `http://localhost:3001/invite`,
+                  {
+                    userInvited: e.target[0].value,
+                    adminUser: oauth.email,
+                    channelId: channel.id,
+                    channelName: channel.name
+                  }
+                );
+                setInvited([...invited, {userInvited: e.target[0].value, adminUser: oauth.email, channelId: channel.id}])
+              } catch (err) {
+                console.log(err)
+              }
+            }
+          }>
+          <TextField id="outlined-basic" label="Email" variant="outlined" required={true} />
+          <Typography>
+          <Button type="submit">Invite</Button>
+          </Typography>
+          </form>
+          <Typography>
+          <ul css={{color: "white"}}>
+            <b>people invited (pending):</b>
+            {invited.map( (user) => (
+              <li>- {user.userInvited}</li>
+            ))}
+          </ul>
+          </Typography>
+          
             <Button variant="outlined" css={{color: "red", margin: "10px"}} startIcon={<DeleteIcon /> } onClick={handleDelete}>
               Delete this channel
             </Button>

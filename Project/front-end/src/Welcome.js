@@ -33,7 +33,7 @@ const useStyles = (theme) => ({
 })
 
 export default function Welcome() {
-  const naviate = useNavigate();
+  const navigate = useNavigate();
   const styles = useStyles(useTheme())
   return (
     <div css={styles.root}>
@@ -48,7 +48,7 @@ export default function Welcome() {
           <div css={styles.card}>
             <ChannelIcon css={styles.icon} onClick= {(e) => {
               e.preventDefault()
-              naviate(`/channels/createChannel`)
+              navigate(`/channels/createChannel`)
             }}  />
             <Typography color="textPrimary">
               Create channels
@@ -57,9 +57,12 @@ export default function Welcome() {
         </Grid>
         <Grid item xs>
           <div css={styles.card}>
-            <FriendsIcon css={styles.icon} />
+            <FriendsIcon css={styles.icon} onClick= {(e) => {
+              e.preventDefault()
+              navigate(`/channels/Notifications`)
+            }}/>
             <Typography color="textPrimary">
-              Invite friends
+              Notifications
             </Typography>
           </div>
         </Grid>

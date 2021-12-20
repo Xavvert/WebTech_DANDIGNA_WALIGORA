@@ -36,6 +36,8 @@ const useStyles = (theme) => ({
     padding: theme.spacing(1),
     backgroundColor: '#a7a6ba',
     flexShrink: 0,
+    borderRadius: "20px 20px 0px 0px",
+    boxShadow: "10px 5px 20px white"
   },
   headerLogIn: {
     backgroundColor: 'red',

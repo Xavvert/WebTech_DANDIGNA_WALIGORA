@@ -7,6 +7,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   footer: {
     backgroundColor: "#301934",
+    borderRadius: "0px 0px 20px 20px",
+    boxShadow: "10px 5px 20px white"
   },
   typography:{
     margin: '6px',

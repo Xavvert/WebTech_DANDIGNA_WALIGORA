@@ -44,6 +44,7 @@ const useStyles = (theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+    boxShadow: "10px 5px 20px white",
     '& > div': {
       marginLeft: 'auto',
       marginRight: 'auto',
@@ -83,12 +84,10 @@ const Redirect = ({
 
       <Grid style={styles.center}>
       <p style={{ fontSize: "50px"}}>Welcome to SpaceChat'</p>
-      <img src={require("./icons/Space.png")} alt='Space Image'></img>
       <p style={{ marginBottom: 'auto'}}>A better way to communicate</p>
       <Button onClick={redirect} variant="contained"  style={{color: "white", padding: "10px", backgroundColor: "#4C4452",  marginTop: '20px'}}>
         Login with OpenID Connect and OAuth2</Button>
         <ThemeContextProvider>
-          <BtnToggle />
         <Contenu/>
         </ThemeContextProvider>
        

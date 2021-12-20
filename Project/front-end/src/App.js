@@ -27,7 +27,7 @@ const styles = {
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#565E71',
+    backgroundColor: 'black',
     padding: '50px',
   },
 }

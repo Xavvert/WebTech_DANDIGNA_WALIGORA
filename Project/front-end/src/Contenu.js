@@ -7,9 +7,6 @@ export default function Contenu() {
     const {theme} = useContext(ThemeContext);
     return(
         <div>
-        <h1>Lorem Ipsut</h1>
-        <p className={theme ? 'contenu light' : 'contenu dark'}
-        >Hey ITS ME</p>
         </div>
     )
 }

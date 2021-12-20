@@ -140,6 +140,55 @@ module.exports = {
       delete store.users[id]
     }
   },
+  invite: {
+    list: async () => {
+      return new Promise( (resolve, reject) => {
+        const invites = []
+        db.createReadStream({
+          gt: "invite:",
+          lte: "invite" + String.fromCharCode(":".charCodeAt(0) + 1),
+        }).on( 'data', ({key, value}) => {
+          invite = JSON.parse(value)
+          invite.id = key.split(':')[1]
+          invites.push(invite)
+        }).on( 'error', (err) => {
+          reject(err)
+        }).on( 'end', () => {
+          resolve(invites)
+        })
+      })
+    },
+    create: async (userInvited, adminUser, channelId, channelName) => {
+      if(!userInvited) throw Error('Invalid id')
+      if(!adminUser) throw Error('Invalid id')
+      if(!channelId) throw Error('Invalid id')
+      if(!channelName) throw Error('Invalid id')
+      const id = uuid()
+      const invite = {
+        userInvited: userInvited,
+        adminUser: adminUser,
+        channelId: channelId,
+        channelName: channelName
+      }
+      await db.put(`invite:${id}`, JSON.stringify(invite))
+      return merge(invite, {id: id})
+    },
+    get: async (id) => {
+      if(!id) throw Error('Invalid id')
+      const data = await db.get(`invite:${id}`)
+      const invite = JSON.parse(data)
+      return merge(invite, {id: id})
+    },
+    delete: async (id) => {
+      db.del(`invite:${id}`, function(err) {
+        if(err) {
+          console.log("error")
+        }
+      })
+      return {id: id}
+    }
+    
+  },
   admin: {
     clear: async () => {
       await db.clear()

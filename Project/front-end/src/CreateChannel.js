@@ -25,6 +25,7 @@ const useStyles = (theme) => ({
 
 export default function CreateChannel() {
   const { oauth, channels, setChannels } = useContext(Context);
+
   const navigate = useNavigate();
   const styles = useStyles(useTheme());
   return (

@@ -93,7 +93,7 @@ Let's now **delete** the first message
 
 
 
-We also can **modify** a message by clicking on the settings button on the right of the message, like this![Capture9](C:\Users\xavie\Downloads\Capture9.PNG)
+We also can **modify** a message by clicking on the settings button on the right of the message, like this!![Capture9](https://user-images.githubusercontent.com/57180432/147009843-1f39bd86-517e-4884-9d1c-7c55eefe5cf0.PNG)
 
 And let's **change** this previous message by "How about tomorrow ?"
 

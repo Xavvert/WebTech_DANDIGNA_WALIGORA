@@ -1,6 +1,0 @@
-.*
-*lock*
-node_modules
-/back-end/db
-!.gitignore
-*.DS_Store

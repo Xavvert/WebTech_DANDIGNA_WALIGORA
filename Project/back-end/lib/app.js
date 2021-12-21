@@ -26,15 +26,29 @@ app.get('/channels', authenticate, async (req, res) => {
   res.json(channels)
 })
 
+// app.post('/channels', async (req, res) => {
+//   const channel = await db.channels.create(req.body)
+//   res.status(201).json(channel)
+// })
+
 app.post('/channels', async (req, res) => {
   const channel = await db.channels.create(req.body)
+  // add the id of this channel to the array ChannelBelong of the user
+  const user = await db.users.updateUserChannels(channel.id, req.body.userId)
   res.status(201).json(channel)
-})
+}) 
 
 app.get('/channels/:id', async (req, res) => {
   const channel = await db.channels.get(req.params.id)
   res.json(channel)
 })
+
+app.delete('/channelDelete/:id', async (req, res) => {
+  const channel = await db.channels.delete(req.params.id)
+  await db.users.deleteUserChannels(channel.id, req.body.userId)
+  res.json(channel)
+})
+
 
 app.put('/channels/:id', async (req, res) => {
   const channel = await db.channels.update(req.body)
@@ -58,6 +72,18 @@ app.post('/channels/:id/messages', async (req, res) => {
   res.status(201).json(message)
 })
 
+app.put('/channels/:id/messages', async (req, res) => {
+  const message = await db.messages.update(req.params.id, req.body)
+  res.status(201).json(message)
+})
+
+app.delete('/channels/:id/messages/:creation', async (req, res) => {
+  console.log("la")
+  const message = await db.messages.delete(req.params.id, req.params.creation)
+  res.status(201).json(message)
+
+})
+
 // Users
 
 app.get('/users', async (req, res) => {
@@ -79,5 +105,29 @@ app.put('/users/:id', async (req, res) => {
   const user = await db.users.update(req.body)
   res.json(user)
 })
+
+//invite
+
+app.get('/invite', async (req, res) => {
+  const invites = await db.invite.list()
+  res.json(invites)
+})
+
+app.post('/invite', async (req, res) => {
+  const invite = await db.invite.create(req.body.userInvited, req.body.adminUser, req.body.channelId, req.body.channelName)
+  res.status(201).json(invite)
+})
+
+app.delete('/invite/:id', async (req, res) => {
+  const invite = await db.invite.delete(req.params.id)
+  res.json(invite)
+})
+
+//Others
+app.post('/updateChannelBelong', async (req, res) => {
+  const user = await db.users.updateUserChannels(req.body.channelId, req.body.userId)
+  res.json(user)
+})
+
 
 module.exports = app

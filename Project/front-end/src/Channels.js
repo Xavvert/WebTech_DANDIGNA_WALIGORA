@@ -26,22 +26,36 @@ export default function Channels() {
     oauth,
     channels, setChannels
   } = useContext(Context)
+<<<<<<< HEAD
   const navigate = useNavigate();
+=======
+  // here for regulate
+  const navigate = useNavigate();
+  const fetch2 = async () => {
+    const {data: users} = await axios.get(`http://localhost:3001/users/${oauth.id}`)
+  }
+  fetch2()
+  
+>>>>>>> paulBranch
   useEffect( () => {
     const fetch = async () => {
       try{
-        const {data: channels} = await axios.get('http://localhost:3001/channels', {
+        const {data: users} = await axios.get(`http://localhost:3001/users/${oauth.id}`)
+        var {data: channels} = await axios.get('http://localhost:3001/channels', {
           headers: {
             'Authorization': `Bearer ${oauth.access_token}`
           }
         })
+        console.log(users)
+        channels = channels.filter(channel => users.channelsBelong.includes(channel.id))
+        console.log(channels)
         setChannels(channels)
       }catch(err){
         console.error(err)
       }
     }
     fetch()
-  }, [oauth, setChannels])
+  }, [oauth, setChannels]) 
   return (
     <ul css={styles.root}>
       <li css={styles.channel}>

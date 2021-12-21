@@ -38,6 +38,7 @@ const useStyles = (theme) => ({
 })
 
 export default function Welcome() {
+<<<<<<< HEAD
   
     const particlesInit = (main) => {
       console.log(main);
@@ -48,6 +49,8 @@ export default function Welcome() {
     const particlesLoaded = (container) => {
       console.log(container);
     };
+=======
+>>>>>>> paulBranch
   const navigate = useNavigate();
   const styles = useStyles(useTheme())
   return (
@@ -74,9 +77,18 @@ export default function Welcome() {
         </Grid>
         <Grid item xs>
           <div css={styles.card}>
+<<<<<<< HEAD
             <FriendsIcon css={styles.icon} />
             <Typography color="textPrimary" style={{fontFamily: "Andromeda",}}>
               Invite friends
+=======
+            <FriendsIcon css={styles.icon} onClick= {(e) => {
+              e.preventDefault()
+              navigate(`/channels/Notifications`)
+            }}/>
+            <Typography color="textPrimary">
+              Notifications
+>>>>>>> paulBranch
             </Typography>
           </div>
         </Grid>

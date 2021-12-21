@@ -62,8 +62,11 @@ export default function Channel() {
       try{
         const {data: messages} = await axios.get(`http://localhost:3001/channels/${id}/messages`, {
           headers: {
-            // TODO: secure the request
           }
+        })
+        messages.map(m => {
+          m.changeMessage = false
+          return m
         })
         setMessages(messages)
         if(listRef.current){
@@ -100,16 +103,28 @@ export default function Channel() {
     return (<div>loading</div>)
   }
   return (
+<<<<<<< HEAD
     <div css={styles.root} style={{ fontFamily: "Simvoni", background: "#313538"}}>
       <List 
+=======
+    <div css={styles.root}>
+      <List
+        setMessages = {setMessages}
+>>>>>>> paulBranch
         channel={channel}
         messages={messages}
         onScrollDown={onScrollDown}
         ref={listRef}
       >
       </List>
+<<<<<<< HEAD
     
       <Form addMessage={addMessage} channel={channel} > </Form>
+=======
+      
+
+      <Form addMessage={addMessage} channel={channel}> </Form>
+>>>>>>> paulBranch
       
       <Fab
         color="secondary"

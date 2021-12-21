@@ -15,7 +15,11 @@ import {
   Routes,
 } from 'react-router-dom'
 import CreateChannel from './CreateChannel';
+<<<<<<< HEAD
 import Settings from './Settings';
+=======
+import Notifications from './Notifications';
+>>>>>>> paulBranch
 
 const useStyles = (theme) => ({
   root: {
@@ -25,6 +29,8 @@ const useStyles = (theme) => ({
     display: 'flex',
     flexDirection: 'row',
     position: 'relative',
+    boxShadow: "10px 5px 20px white"
+
   },
   drawer: {
     width: '200px',
@@ -63,7 +69,11 @@ export default function Main() {
         <Route path=":id" element={<Channel />}/>
         <Route path="*" element={<Welcome />}/>
         <Route path="/createChannel" element={<CreateChannel />}/>
+<<<<<<< HEAD
         <Route path="/settings" element={<Settings/>}/>
+=======
+        <Route path="/Notifications" element={<Notifications />}/>
+>>>>>>> paulBranch
 
       </Routes>
     </main>

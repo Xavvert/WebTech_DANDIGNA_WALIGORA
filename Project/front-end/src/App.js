@@ -30,8 +30,13 @@ const styles = {
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'column',
+<<<<<<< HEAD
     backgroundColor: '#565656',
     padding: '25px',
+=======
+    backgroundColor: 'black',
+    padding: '50px',
+>>>>>>> paulBranch
   },
 }
 

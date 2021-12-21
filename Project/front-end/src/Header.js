@@ -42,6 +42,8 @@ const useStyles = (theme) => ({
     padding: theme.spacing(0.5),
     backgroundColor: '#a7a6ba',
     flexShrink: 0,
+    borderRadius: "20px 20px 0px 0px",
+    boxShadow: "10px 5px 20px white"
   },
   headerLogIn: {
     backgroundColor: 'red',
@@ -92,6 +94,7 @@ export default function Header({
       {
         oauth ?
           <div className={classes2.root} >
+<<<<<<< HEAD
             
             <Chip label={oauth.email} style={{color: "white", backgroundColor: "darkgreen", float: 'left', fontFamily: "AstroSpace"}} ></Chip>
             
@@ -99,6 +102,11 @@ export default function Header({
             
             <Button onClick={onClickLogout} style={{color: "white", marginTop: "-29px", padding: "4px", 
             backgroundColor: "#C70039", float: 'right', fontFamily: "AstroSpace"}}>
+=======
+            <Chip label={oauth.email} style={{color: "white", backgroundColor: "darkgreen", float: 'left'}} ></Chip>
+            <Typography  style={{color: "white",textAlign: 'center'}}> Space Chat</Typography>
+            <Button onClick={onClickLogout} style={{color: "white", padding: "4px", backgroundColor: "red", float: 'right'}}>
+>>>>>>> paulBranch
             Logout</Button>
           </div>
         :

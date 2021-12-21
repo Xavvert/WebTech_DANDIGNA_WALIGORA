@@ -4,6 +4,9 @@ const microtime = require('microtime')
 const app = require('../lib/app')
 const db = require('../lib/db')
 
+afterEach( async () => {
+  await db.admin.clear()
+})
 describe('messages', () => {
   
   beforeEach( async () => {
@@ -11,10 +14,15 @@ describe('messages', () => {
   })
   
   it('list empty', async () => {
+    // Create a user 
+    const {body: user} = await supertest(app)
+    .post('/users')
+    .send({username: 'user_1'})
+    .expect(201)
     // Create a channel
     const {body: channel} = await supertest(app)
     .post('/channels')
-    .send({name: 'channel 1'})
+    .send({name: 'channel 1', userId: user.id})
     // Get messages
     const {body: messages} = await supertest(app)
     .get(`/channels/${channel.id}/messages`)
@@ -23,10 +31,15 @@ describe('messages', () => {
   })
   
   it('list one message', async () => {
+    // Create a user 
+    const {body: user} = await supertest(app)
+    .post('/users')
+    .send({username: 'user_1'})
+    .expect(201)
     // Create a channel
     const {body: channel} = await supertest(app)
     .post('/channels')
-    .send({name: 'channel 1'})
+    .send({name: 'channel 1', userId: user.id})
     // and a message inside it
     await supertest(app)
     .post(`/channels/${channel.id}/messages`)
@@ -43,10 +56,15 @@ describe('messages', () => {
   })
   
   it('add one element', async () => {
+    // Create a user 
+    const {body: user} = await supertest(app)
+    .post('/users')
+    .send({username: 'user_1'})
+    .expect(201)
     // Create a channel
     const {body: channel} = await supertest(app)
     .post('/channels')
-    .send({name: 'channel 1'})
+    .send({name: 'channel 1', userId: user.id})
     // Create a message inside it
     const {body: message} = await supertest(app)
     .post(`/channels/${channel.id}/messages`)

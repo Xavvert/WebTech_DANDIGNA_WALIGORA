@@ -47,6 +47,7 @@ const useStyles = (theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+    boxShadow: "10px 5px 20px white",
     '& > div': {
       marginLeft: 'auto',
       marginRight: 'auto',
@@ -173,6 +174,7 @@ const Redirect = ({
       }}
     />
       <Grid style={styles.center}>
+<<<<<<< HEAD
         
       <p style={{ fontSize: "55px", fontFamily: "Andromeda"}}>Welcome to SpaceChat'</p>
       <img src={require("./icons/Space.png")} alt='Space Image'></img>
@@ -180,6 +182,15 @@ const Redirect = ({
       <Button onClick={redirect} variant="contained"  style={{color: "white", padding: "10px",  fontFamily: "Andromeda", backgroundColor: "#4C4452",  marginTop: '20px'}}>
         Login with OpenID Connect and OAuth2</Button>
         
+=======
+      <p style={{ fontSize: "50px"}}>Welcome to SpaceChat'</p>
+      <p style={{ marginBottom: 'auto'}}>A better way to communicate</p>
+      <Button onClick={redirect} variant="contained"  style={{color: "white", padding: "10px", backgroundColor: "#4C4452",  marginTop: '20px'}}>
+        Login with OpenID Connect and OAuth2</Button>
+        <ThemeContextProvider>
+        <Contenu/>
+        </ThemeContextProvider>
+>>>>>>> paulBranch
        
       </Grid>
       
@@ -235,6 +246,24 @@ const LoadToken = ({
           code: `${code}`,
         }))
         removeCookie('code_verifier')
+        const {data: users} = await axios.get('http://localhost:3001/users')
+        const payload = JSON.parse(
+          Buffer.from(
+            data.id_token.split('.')[1], 'base64'
+          ).toString('utf-8'))
+        if (!users.filter(user => user.username == payload.email).length){
+          // the user doesn't exist, we have to add him in the data base
+          const {data: user} = await axios.post('http://localhost:3001/users', {
+            username: payload.email
+          })
+          data.email = user.username
+          data.id = user.id 
+        } else {
+          // the user already exist, but we have to add the id and the email of the user in the cookie
+          const theUser = users.find(user => user.username == payload.email)
+          data.email = theUser.username
+          data.id = theUser.id
+        }
         setOauth(data)
         navigate('/')
       }catch (err) {

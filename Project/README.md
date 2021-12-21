@@ -31,7 +31,7 @@ if (!users.filter(user => user.username == payload.email).length){
         }
 ```
 
-![Capture1](C:\Users\xavie\Downloads\Capture1.PNG)
+![Capture1](https://user-images.githubusercontent.com/57180432/147009544-1eaf087c-6e8e-476a-a53f-b6587a61d35b.PNG)
 
 The first time you login, you're landing on this page. You have **three choices** here : 
 
@@ -45,11 +45,11 @@ Lets now create a new channel and send some messages...
 
 When we create a new channel, we have to **set a name** for the channel 
 
-![Capture2](C:\Users\xavie\Downloads\Capture2.PNG)
+![Capture2](https://user-images.githubusercontent.com/57180432/147009561-c46ba749-14d5-4c9e-8c92-e07a4e49b433.PNG)
 
 Let's now create **three channels**, and TA-DAA, we have now wonderful channels as you can see below 
 
-![Capture3](C:\Users\xavie\Downloads\Capture3.PNG)
+![Capture3](https://user-images.githubusercontent.com/57180432/147009568-de9cb73c-ce50-48d2-a134-bed4b191ccd1.PNG)
 
 We can see all the **channels created** on the left of the screen. Notice that, on an other account, **you won't see** those channels because you were **not** invited. 
 
@@ -57,7 +57,7 @@ We can see all the **channels created** on the left of the screen. Notice that, 
 
 Once you are in a channel, you can check the **settings of the channel** on the top left corner of the screen
 
-![Capture4](C:\Users\xavie\Downloads\Capture4.PNG)
+![Capture4](https://user-images.githubusercontent.com/57180432/147009578-f9c3db18-1b4f-47f8-98de-907381accf96.PNG)
 
 When you open the settings, a **modal window** open where you can do multiple things...
 
@@ -72,12 +72,12 @@ So you can **delete the channel or add new people** to this channel with their e
 When we add new people, we can **see all the people we invited in the list** (however these people will have to accept whether they want to join the channel).
 Lets now see what happen on **paul.waligora@edu.ece.fr** account: 
 
-![Capture13](C:\Users\xavie\Downloads\Capture13.PNG)
+![Capture13](https://user-images.githubusercontent.com/57180432/147009613-7a2dcab5-83c5-4cfa-875c-34926f498dc6.PNG)
 
 When we go to the other account in notifications page, we can **accept or reject** the invitation to the new channel. On this notification page, we can see the name of the channel and the **person who invited me**. 
 If we accept, we become members of the channel and the notification disappear : 
 
- ![Capture14](C:\Users\xavie\Downloads\Capture14.PNG)
+![Capture14](https://user-images.githubusercontent.com/57180432/147009623-514a98a4-a144-4620-903a-2807bba6657d.PNG)
 
 ### Delete and modify messages 🌌
 
@@ -85,11 +85,11 @@ In our app, we have the possibility to **change or delete a message**. You can d
 
 **Let's go back to the main account**, and write some messages...
 
-![Capture7](C:\Users\xavie\Downloads\Capture7.PNG)
+![Capture7](https://user-images.githubusercontent.com/57180432/147009644-536cfd64-1a9c-434b-ada9-e508a84bd9f3.PNG)
 
 Let's now **delete** the first message
 
-![Capture8](C:\Users\xavie\Downloads\Capture8.PNG)
+![Capture8](https://user-images.githubusercontent.com/57180432/147009656-4a80e5d3-fecb-4f06-aed1-b62b3b252dfd.PNG)
 
 
 
@@ -97,7 +97,7 @@ We also can **modify** a message by clicking on the settings button on the right
 
 And let's **change** this previous message by "How about tomorrow ?"
 
-![Capture10](C:\Users\xavie\Downloads\Capture10.PNG)
+![Capture10](https://user-images.githubusercontent.com/57180432/147009668-04d0ed37-4890-487f-ba29-1ae815449504.PNG)
 
 
 
@@ -105,7 +105,7 @@ And let's **change** this previous message by "How about tomorrow ?"
 
 For the settings page that can be found on the welcome screen. The page is just implemented but nothing is working here. It is just displayed to have an overview, but **not useful for now**, and will be implemented in the near future.
 
-![Capture11](C:\Users\xavie\Downloads\Capture11.PNG)
+![Capture11](https://user-images.githubusercontent.com/57180432/147009678-b80193ce-abc1-4e83-ace0-3448c2edc7b5.PNG)
 
 ## Usage 🌌
 

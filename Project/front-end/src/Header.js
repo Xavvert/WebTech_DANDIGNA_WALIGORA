@@ -85,7 +85,7 @@ export default function Header({
         oauth ?
           <div className={classes2.root} >
             <Chip label={oauth.email} style={{color: "white", backgroundColor: "darkgreen", float: 'left'}} ></Chip>
-            <Typography  style={{color: "white",textAlign: 'center'}}> My Centered Header</Typography>
+            <Typography  style={{color: "white",textAlign: 'center'}}> Space Chat</Typography>
             <Button onClick={onClickLogout} style={{color: "white", padding: "4px", backgroundColor: "red", float: 'right'}}>
             Logout</Button>
           </div>

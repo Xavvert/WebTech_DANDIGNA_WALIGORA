@@ -51,8 +51,11 @@ export default function Channel() {
       try{
         const {data: messages} = await axios.get(`http://localhost:3001/channels/${id}/messages`, {
           headers: {
-            // TODO: secure the request
           }
+        })
+        messages.map(m => {
+          m.changeMessage = false
+          return m
         })
         setMessages(messages)
         if(listRef.current){
@@ -89,14 +92,13 @@ export default function Channel() {
   return (
     <div css={styles.root}>
       <List
+        setMessages = {setMessages}
         channel={channel}
         messages={messages}
         onScrollDown={onScrollDown}
         ref={listRef}
       >
       </List>
-      <Gravatar email="mathews.kyle@gmail.com" />
-      <Gravatar email="blah@blah.com" />
       
 
       <Form addMessage={addMessage} channel={channel}> </Form>

@@ -1,7 +1,109 @@
-
 # Chat application - final project
 
-*presentation, introduction, ...*
+## Presentation
+
+For this assessment, we are going to do a user Experience presentation of our space chat. 
+
+### Login Screen 
+
+We created an intuitive and UX design welcome screen where we can simply login with dex
+
+![image/screenshot1.jpg](image/screenshot1.jpg)
+
+
+
+### Connexion and Welcome Screen 
+
+After having Login, our code check if you have already been on this application. If you have already been in this application, you are connected and your email and id are set in the usecontext. Else, if you have never been on this application, it will create a user with your email and an id in the databse. 
+Here is the code that does this: 
+
+```js
+if (!users.filter(user => user.username == payload.email).length){
+          // the user doesn't exist, we have to add him in the data base
+          const {data: user} = await axios.post('http://localhost:3001/users', {
+            username: payload.email
+          })
+          data.email = user.username
+          data.id = user.id 
+        } else {
+          // the user already exist, but we have to add the id and the email of the user in the cookie
+          const theUser = users.find(user => user.username == payload.email)
+          data.email = theUser.username
+          data.id = theUser.id
+        }
+```
+
+![image/screenshot2.jpg](image/screenshot2.jpg)
+
+The first time you login, you arrive to this page. you have two choices here: 
+
+- Create a new channel 
+- check your notifiactions
+
+Lets now create a new channel and send some messages... 
+
+### Create a new Channel
+
+When we create a new channel, we have to set a nem for the channel like here: 
+
+![image/screenshot3.jpg](image/screenshot3.jpg)
+
+Lets now create multipe channels named "channel 1, 2, 3": 
+
+![image/screenshot4.jpg](image/screenshot4.jpg)
+
+We can see all the channels created on the left of the screen. Notice that, on an other account, you won't see these channels because you were not invited. 
+
+
+
+### Channel settings 
+
+Once you are in a channel, you can check the settings of the channel (on the top left corner of the screen)
+
+![image/screenshot5.jpg](image/screenshot5.jpg)
+
+When you open the settings, a modal window open where you can do multiple things: 
+
+![image/screenshot6.jpg](image/screenshot6.jpg)
+
+So you can delete the channel or add new people to this channel with their email address. Lets add a new people to the channel: 
+
+![image/screenshot7.jpg](image/screenshot7.jpg)
+
+
+
+When we add new people, we can see all the people we invited in the list (however these people will have to accept whether they want to join the channel).
+Lets now see what happen on paul.waligora@edu.ece.fr account: 
+
+![image/screenshot8.jpg](image/screenshot8.jpg)
+
+When we go to the other account in notifications page, we can accept or reject the invitation to the new channel. Onthis notification page, we can see the name of the channel and the person who invited me. 
+If we accept, we become members of the channel and the notification disapear : 
+
+ ![image/screenshot9.jpg](image/screenshot9.jpg)
+
+
+
+
+
+
+
+### Delete and modify messages 
+
+In our app, we have the possibility to change or delete a message. You can delete a message thanks to the thrash button on the right or modify it with the settings button. 
+Lets write some messages and delete a message: 
+
+ ![image/screenshot10.jpg](image/screenshot10.jpg)
+
+Lets now delete the first message:![image/screenshot11.jpg](image/screenshot11.jpg)
+
+
+
+We also can modify a message by clicking on the settings button on the right of the message, like this : ![image/screenshot12.jpg](image/screenshot12.jpg)
+
+And let change the message to "I am currently in London for a trip !": 
+
+![image/screenshot11.jpg](image/screenshot11.jpg)
 
 ## Usage
 
@@ -60,48 +162,49 @@
 
 ## Author
 
-*name, email, ...*
+- Paul Waligora 
+- Xavier Dandigna
 
 ## Tasks
 
 Project management
 
 * Naming convention   
-  *place your graduation and comments*
+  1.5/2, we tried to make our code the most visible possible with easy name of file or variables
 * Project structure   
-  *place your graduation and comments*
+  2/4, we separated everything we could separate in different folders 
 * Code quality   
-  *place your graduation and comments*
+  3/4 we used formater with vs code to help us format our documents better
 * Design, UX   
-  *place your graduation and comments*
+  3/4, we used material UI for a lot of components, however the overall style doesn't follow
 * Git and DevOps   
-  *place your graduation and comments*
+  3/4, We used branch and commit during all the project in order to follow our progression. furthermore we modified unit test for our project
 
 Application development
 
 * Welcome screens   
-  *place your graduation and comments*
+  2/4: we made something simple where we easily can access to different pages
 * New channel creation   
-  *place your graduation and comments*
+  5/6, we can create a channel, it persist to the database, we can also set the name of the channel
 * Channel membership and access   
-  *place your graduation and comments*
+  3/4 when we create a new channel, the channel is associated with the Id of the person who created the channel. However, we didn't implemented token access. 
 * Ressource access control   
-  *place your graduation and comments*
+  3/4, the user can access only to his channel or to the channel where he was invited 
 * Invite users to channels   
-  *place your graduation and comments*
+  6/6, we can invite who ever we want with their adress mail 
 * Message modification   
-  *place your graduation and comments*
+  2/2, we can easily modificate a message
 * Message removal   
-  *place your graduation and comments*
+  2/2, we also easily can remove a message
 * Account settings   
-  *place your graduation and comments*
+  0
 * Gravatar integration   
-  *place your graduation and comments*
+  0
 * Avatar selection   
-  *place your graduation and comments*
+  0
 * Personal custom avatar   
-  *place your graduation and comments*
+  0
 
 ## Bonus
 
-*place your graduation and comments*
+4, We have a notification page where we can accept or not if we want to go to a channel

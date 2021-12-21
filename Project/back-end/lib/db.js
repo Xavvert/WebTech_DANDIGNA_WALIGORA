@@ -58,9 +58,22 @@ module.exports = {
       creation = microtime.now()
       await db.put(`messages:${channelId}:${creation}`, JSON.stringify({
         author: message.author,
-        content: message.content
+        content: message.content,
+        id: uuid()
       }))
       return merge(message, {channelId: channelId, creation: creation})
+    },
+    update: async (channelId, message) => {
+      if(!channelId) throw Error('Invalid channel')
+      if(!message.author) throw Error('Invalid message')
+      if(!message.content) throw Error('Invalid message')
+      if(!message.creation) throw Error('Invalid message')
+      await db.put(`messages:${channelId}:${message.creation}`, JSON.stringify({
+        author: message.author,
+        content: message.content,
+        id: uuid()
+      }))
+      return merge(message, {channelId: channelId})
     },
     list: async (channelId) => {
       return new Promise( (resolve, reject) => {
@@ -81,7 +94,13 @@ module.exports = {
         })
       })
     },
+    delete: async (channelId, creation) => {
+      const data = await db.del(`messages:${channelId}:${creation}`)
+      console.log(data)
+      return "deleted"
+    },
   },
+  
   users: {
     create: async (user) => {
       if(!user.username) throw Error('Invalid user')
@@ -123,7 +142,7 @@ module.exports = {
       if(!channelId) throw Error('Invalid id')
       const data = await db.get(`users:${userId}`)
       const user = JSON.parse(data)
-      user.channelsBelong.push(channelId)
+      user.channelsBelong.push(channelId) 
       await db.put(`users:${userId}`, JSON.stringify(user))
     },
     deleteUserChannels: async (channelId, userId) => {

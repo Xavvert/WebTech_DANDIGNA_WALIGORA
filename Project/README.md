@@ -8,7 +8,7 @@ For this README file, we are first going through a **User Experience** presentat
 
 We created an intuitive and UX design welcome screen where we can login with dex. Moreover, we've made a **infinite gradient background** coupled with an **animation** to render it more '***spacy***' ! The **fonts** has been chosen to match the space ambient. Another cool feature is that the user is able to turn on ([🔊](https://emojipedia.org/speaker-high-volume/)), or turn off ([🔇](https://emojipedia.org/muted-speaker/)), the **ambient music** on the top right corner by clicking on the speaker icon.
 
-![Login](C:\Users\xavie\Downloads\Login.gif)
+![Login](https://user-images.githubusercontent.com/57180432/147009490-ba07c800-34fd-4cb1-a912-903a0ff3a6ce.gif)
 
 ### Connexion & Welcome Screen 🌌
 

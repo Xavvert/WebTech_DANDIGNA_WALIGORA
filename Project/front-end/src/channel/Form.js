@@ -9,6 +9,10 @@ import { Button, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { useTheme } from '@mui/styles';
 
+import InputEmoji from "react-input-emoji";
+import React from "react";
+
+
 const useStyles = (theme) => {
   // See https://github.com/mui-org/material-ui/blob/next/packages/material-ui/src/OutlinedInput/OutlinedInput.js
   const borderColor = theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.23)' : 'rgba(255, 255, 255, 0.23)';
@@ -46,32 +50,20 @@ export default function Form({
     addMessage(message)
     setContent('')
   }
+  
   const handleChange = (e) => {
     setContent(e.target.value)
   }
   return (
     <form css={styles.form} onSubmit={onSubmit} noValidate>
-      <TextField
-        id="outlined-multiline-flexible"
-        label="Message"
-        multiline
-        maxRows={4}
-        value={content}
-        onChange={handleChange}
-        variant="outlined"
-        css={styles.content}
-      />
-      <div>
-        <Button
-          variant="contained"
-          color="primary"
-          css={styles.send}
-          endIcon={<SendIcon />}
-          onClick={onSubmit}
-        >
-          Send
-        </Button>
-      </div>
+
+    <InputEmoji
+      value={content}
+      onChange={setContent}
+      cleanOnEnter
+      onEnter={onSubmit}
+      placeholder="Type a message then press 'Enter' "
+    />
     </form>
   )
 }

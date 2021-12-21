@@ -28,3 +28,19 @@ ul {
   height: 100%;
   width: 100%;
 }
+
+@font-face {
+  font-family: 'AstroSpace';
+  src: local('AstroSpace'), url(../fonts/AstroSpace-eZ2Bg.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Wilma';
+  src: local('Wilma'), url(../fonts/WilmaMankillerModern-J4Ej.ttf) format('truetype');
+}
+
+
+@font-face {
+  font-family: 'Andromeda';
+  src: local('Andromeda'), url(../fonts/Andromeda-eR2n.ttf) format('truetype');
+}

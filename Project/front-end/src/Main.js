@@ -16,6 +16,7 @@ import {
 } from 'react-router-dom'
 import CreateChannel from './CreateChannel';
 import Notifications from './Notifications';
+import Settings from './Settings';
 
 const useStyles = (theme) => ({
   root: {
@@ -66,6 +67,7 @@ export default function Main() {
         <Route path="*" element={<Welcome />}/>
         <Route path="/createChannel" element={<CreateChannel />}/>
         <Route path="/Notifications" element={<Notifications />}/>
+        <Route path="/settings" element={<Settings/>}/>
 
       </Routes>
     </main>

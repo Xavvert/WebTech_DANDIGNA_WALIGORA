@@ -9,11 +9,9 @@ import axios from 'axios'
 import { useTheme } from '@mui/styles';
 import { Link } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import ThemeContextProvider from './ThemeContext';
 
-import Contenu from './Contenu';
 import '././style/Contenu.css';
-import BtnToggle from './BtnToggle';
+import '././style/BGradient.css'
 
 // Local
 import Context from './Context'
@@ -22,6 +20,10 @@ import {
   useNavigate
 } from "react-router-dom";
 import { ThemeContext } from '@emotion/react';
+
+import "./style/Header.css"
+import "./style/index.css"
+import Particles from "react-tsparticles";
 
 const base64URLEncode = (str) => {
   return str.toString('base64')
@@ -40,17 +42,16 @@ const sha256 = (buffer) => {
 const useStyles = (theme) => ({
   root: {
     flex: '1 1 auto',
-    background: "linear-gradient(-45deg, #1d1135 70%, #0000a0 120%)",
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    boxShadow: "10px 5px 20px white",
+  
     '& > div': {
       marginLeft: 'auto',
       marginRight: 'auto',
       marginTop: '1%',
       marginBottom: '1%',
-      width: '30%',
+      width: '50%',
     },
   },
 
@@ -79,21 +80,104 @@ const Redirect = ({
     ].join('')
     window.location = url
   }
+
+  const particlesInit = (main) => {
+    console.log(main);
+  };
+
+  const particlesLoaded = (container) => {
+    console.log(container);
+  };
+
   return (
+    <div className='wrapper'>
     <div css={styles.root}>
 
+    <Particles
+      id="tsparticles"
+      init={particlesInit}
+      loaded={particlesLoaded}
+      options={{
+        fpsLimit: 60,
+        interactivity: {
+          events: {
+            onClick: {
+              enable: true,
+              mode: "push",
+            },
+            onHover: {
+              enable: true,
+              mode: "repulse",
+            },
+            resize: true,
+          },
+          modes: {
+            bubble: {
+              distance: 200,
+              duration: 2,
+              opacity: 0.8,
+              size: 30,
+            },
+            push: {
+              quantity: 4,
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4,
+            },
+          },
+        },
+        particles: {
+          color: {
+            value: "#ffffff",
+          },
+          links: {
+            color: "#ffffff",
+            distance: 120,
+            enable: true,
+            opacity: 0.5,
+            width: 1,
+          },
+          collisions: {
+            enable: true,
+          },
+          move: {
+            direction: "none",
+            enable: true,
+            outMode: "bounce",
+            random: false,
+            speed: 6,
+            straight: false,
+          },
+          number: {
+            density: {
+              enable: true,
+              value_area: 800,
+            },
+            value: 25,
+          },
+          opacity: {
+            value: 0.5,
+          },
+          shape: {
+            type: "circle",
+          },
+          size: {
+            random: true,
+            value: 5,
+          },
+        },
+        detectRetina: true,
+      }}
+    />
+
       <Grid style={styles.center}>
-      <p style={{ fontSize: "50px"}}>Welcome to SpaceChat'</p>
-      <p style={{ marginBottom: 'auto'}}>A better way to communicate</p>
-      <Button onClick={redirect} variant="contained"  style={{color: "white", padding: "10px", backgroundColor: "#4C4452",  marginTop: '20px'}}>
-        Login with OpenID Connect and OAuth2</Button>
-        <ThemeContextProvider>
-        <Contenu/>
-        </ThemeContextProvider>
-       
+      <p style={{ fontSize: "55px", marginBottom: '5%', fontFamily: "Andromeda"}}>Welcome to SpaceChat'</p>
+      <p style={{ fontSize: "25px", marginBottom: '5%', fontFamily: "Andromeda"}}># A better way to communicate #</p>
+      <Button style={{ fontSize: "25px", fontFamily: "Andromeda"}} onClick={redirect} variant="contained"  style={{color: "white", padding: "10px",  fontFamily: "Andromeda", backgroundColor: "#4C4452",  marginTop: '20px'}}>
+        Login with OpenID Connect and OAuth2</Button>     
       </Grid>
-      
-      
+    </div>
     </div>
   )
 }

@@ -6,6 +6,11 @@ import { Grid, Typography } from '@mui/material';
 import { ReactComponent as ChannelIcon } from './icons/channel.svg';
 import { ReactComponent as FriendsIcon } from './icons/friends.svg';
 import { ReactComponent as SettingsIcon } from './icons/settings.svg';
+import { Avatar } from '@mui/material';
+
+import "./style/Header.css"
+import "./style/index.css"
+import '././style/BGradient.css'
 
 // Navigation
 import {useNavigate} from 'react-router-dom'
@@ -15,7 +20,6 @@ const useStyles = (theme) => ({
     height: '100%',
     flex: '1 1 auto',
     display: 'flex',
-    background: "linear-gradient(45deg, #32174d 70%, #191f45 80%)",
   },
   card: {
     textAlign: 'center',
@@ -36,6 +40,7 @@ export default function Welcome() {
   const navigate = useNavigate();
   const styles = useStyles(useTheme())
   return (
+    <div className='wrapper'>
     <div css={styles.root}>
       <Grid
         container
@@ -50,7 +55,7 @@ export default function Welcome() {
               e.preventDefault()
               navigate(`/channels/createChannel`)
             }}  />
-            <Typography color="textPrimary">
+             <Typography color="textPrimary" style={{fontFamily: "Andromeda",}}>
               Create channels
             </Typography>
           </div>
@@ -61,20 +66,24 @@ export default function Welcome() {
               e.preventDefault()
               navigate(`/channels/Notifications`)
             }}/>
-            <Typography color="textPrimary">
+             <Typography color="textPrimary" style={{fontFamily: "Andromeda",}}>
               Notifications
             </Typography>
           </div>
         </Grid>
         <Grid item xs>
           <div css={styles.card}>
-            <SettingsIcon css={styles.icon} />
-            <Typography color="textPrimary">
+            <SettingsIcon css={styles.icon} onClick= {(e) => {
+              e.preventDefault()
+              navigate(`/channels/settings`)
+            }}  />
+             <Typography color="textPrimary" style={{fontFamily: "Andromeda",}}>
               Settings
             </Typography>
           </div>
         </Grid>
       </Grid>
+    </div>
     </div>
   );
 }

@@ -15,6 +15,9 @@ import Context from './Context'
 import { useNavigate, useParams } from 'react-router-dom'
 import Gravatar from 'react-gravatar'
 
+import "./style/Header.css"
+import "./style/index.css"
+
 const useStyles = (theme) => ({
   root: {
     height: '100%',
@@ -90,7 +93,8 @@ export default function Channel() {
     return (<div>loading</div>)
   }
   return (
-    <div css={styles.root}>
+    <div css={styles.root} style={{ fontFamily: "Wilma", background: "#313538"}}>
+      
       <List
         setMessages = {setMessages}
         channel={channel}
@@ -104,7 +108,7 @@ export default function Channel() {
       <Form addMessage={addMessage} channel={channel}> </Form>
       
       <Fab
-        color="primary"
+        color="secondary"
         aria-label="Latest messages"
         css={[styles.fab, scrollDown || styles.fabDisabled]}
         onClick={onClickScroll}

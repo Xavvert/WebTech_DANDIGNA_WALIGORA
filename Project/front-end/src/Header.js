@@ -11,6 +11,10 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@mui/styles';
 import { Chip } from '@mui/material';
 
+import "./style/Header.css"
+import "./style/index.css"
+import PlaySound from "./PlaySound";
+
 const useStylesHeader1 = makeStyles({
   root: {
     background: 'linear-gradient(45deg, #3a243b 30%, #191970 90%)',
@@ -18,7 +22,8 @@ const useStylesHeader1 = makeStyles({
     textAlign: 'center',
     borderRadius: 3,
     color: 'white',
-    fontSize: 30,
+    fontSize: 20,
+    fontFamily: 'AstroSpace',
   },
 });
 
@@ -28,6 +33,7 @@ const useStylesHeader2 = makeStyles({
     border: 0,
     borderRadius: 3,
     height: 33,
+    fontFamily: 'AstroSpace',
   },
 });
 
@@ -84,14 +90,16 @@ export default function Header({
       {
         oauth ?
           <div className={classes2.root} >
-            <Chip label={oauth.email} style={{color: "white", backgroundColor: "darkgreen", float: 'left'}} ></Chip>
-            <Typography  style={{color: "white",textAlign: 'center'}}> Space Chat</Typography>
-            <Button onClick={onClickLogout} style={{color: "white", padding: "4px", backgroundColor: "red", float: 'right'}}>
+            <Chip label={oauth.email} style={{color: "white", backgroundColor: "darkgreen", float: 'left', fontFamily: "AstroSpace"}} ></Chip>
+            <Typography  style={{color: "white",textAlign: 'center', fontFamily: "AstroSpace", paddingTop:"5px", marginRight:"120px",}}> A SpaceChat' Project</Typography>
+            <Button onClick={onClickLogout} style={{color: "white", marginTop: "-29px", padding: "4px", 
+            backgroundColor: "#C70039", float: 'right', fontFamily: "AstroSpace"}}>
             Logout</Button>
           </div>
         :
         <header>
-        <Typography className={classes1.root}>🚀 We're, we're landing on SpaceChat' Sir... 👨‍🚀 Roger that!</Typography>
+          <Typography className={classes1.root}>🚀 We're, we're landing on SpaceChat' Sir... 👨‍🚀 Roger that!</Typography>
+          <PlaySound />
         </header>
       }
       

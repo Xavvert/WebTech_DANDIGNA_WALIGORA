@@ -11,6 +11,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
+import Gravatar from 'react-gravatar';
 // Buttons
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -185,7 +186,8 @@ export default forwardRef(
           }}
           onClick={handleOpen}
         />
-        <h1>Messages for {channel.name}</h1>
+        <h1 style={{float: 'left', marginLeft: '25%'}}> ☄️ Messages landed on </h1> 
+        <h1  style={{display: 'flex', paddingLeft: '10px', color: '#00a9c8'}}> {channel.name}</h1>
         <ul>
           {messages.map((message, i) => {
             const { value } = unified()
@@ -195,6 +197,8 @@ export default forwardRef(
               .processSync(message.content);
             return (
               <li key={i} css={styles.message}>
+                <Gravatar style={{float:'left', marginRight: '5px', height: '40px', width: '40px'}} 
+                email="blahblah.com" />
                 <div
                   css={{
                     display: "inline-block",
@@ -280,9 +284,9 @@ export default forwardRef(
                   </IconButton>
                 </div>
                 <p>
-                  <span>{message.author}</span>
-                  {" - "}
-                  <span>{dayjs().calendar(message.creation)}</span>
+                <span style={{color: 'lightblue'}}>{message.author}</span>
+                  {' says '}
+                  <span style={{float:'right', color: '#c09bf3'}}>{dayjs().calendar(message.creation)}</span>
                 </p>
                 <div dangerouslySetInnerHTML={{ __html: value }}></div>
               </li>

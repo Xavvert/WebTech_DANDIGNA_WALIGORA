@@ -66,7 +66,7 @@ export default function Channels() {
               e.preventDefault()
               navigate(`/channels/${channel.id}`)
             }}
-            style={{color: "white", textAlign: 'center', background:'#301934', marginTop: '8px', marginLeft: '25%', fontFamily: "Andromeda"}}>
+            style={{color: "white", textAlign: 'center', background:'#301934', marginTop: '8px', marginLeft: '3%', fontFamily: "Andromeda"}}>
             {channel.name}
           </Button>
         </li>

@@ -37,7 +37,7 @@ center:{
         fontFamily: "Wilma",
         display: "flex",
         justifyContent: "center",
-        marginTop: "1px",
+        marginTop: "10px",
     },
     button1:{
     color: "white",
@@ -67,7 +67,7 @@ nameTextfield:{
     fontFamily: "Wilma",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: "100px",
+    marginTop: "10px",
 },
 
 mailTextfield:{
@@ -104,9 +104,6 @@ return(
     <Typography variant='h3' style={styles.title}>
         Settings
     </Typography>
-    <Button variant="contained"  style={styles.button1}>
-        Initialize informations
-    </Button>
 
         <TextField
         style={styles.nameTextfield}
